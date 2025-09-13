@@ -1,0 +1,236 @@
+// ===== queries/_mobile.scss =====
+
+// ===== MÓVILES PEQUEÑOS (max-width: 480px) =====
+@include responsive('sm') {
+
+    // ===== HEADER MÓVIL =====
+    header {
+        .logo {
+            padding: spacing('3') spacing('4');
+            max-width: 80px;
+            max-height: 45px;
+
+            img {
+                height: 18px !important;
+                max-height: 18px !important;
+                max-width: 30px !important;
+            }
+        }
+    }
+
+    // ===== NAVEGACIÓN MÓVIL =====
+    .nav-list {
+        a {
+            padding: spacing('3') spacing('4');
+            font-size: font-size('xs');
+        }
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-mobile {
+        display: block;
+    }
+
+    // ===== CONTENIDO PRINCIPAL =====
+    main {
+        padding: 0 spacing('4');
+    }
+
+    section {
+        padding: spacing('8') spacing('6');
+    }
+
+    // ===== TIPOGRAFÍA MÓVIL =====
+    h1 {
+        font-size: font-size('3xl');
+    }
+
+    h2 {
+        font-size: font-size('xl');
+    }
+
+    p {
+        font-size: font-size('base');
+    }
+
+    // ===== HABILIDADES MÓVIL =====
+    .sobre-mi-habilidades {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: spacing('3');
+
+        .habilidad {
+            padding: spacing('5') spacing('2');
+            font-size: font-size('sm');
+
+            i {
+                font-size: font-size('2xl');
+            }
+        }
+    }
+
+    // ===== SERVICIOS MÓVIL =====
+    #trabajemos-juntos .servicio {
+        padding: spacing('4');
+        font-size: font-size('sm');
+    }
+
+    // ===== CARDS MÓVIL =====
+    .cards-columnas {
+        grid-template-columns: 1fr;
+
+        .card {
+            padding: spacing('6');
+            font-size: font-size('sm');
+        }
+    }
+
+    // ===== PORTFOLIO MÓVIL =====
+    .grid-portfolio {
+        grid-template-columns: 1fr;
+        grid-gap: spacing('5');
+        padding: 0;
+
+        .card {
+            min-height: 320px;
+            padding: spacing('4');
+            margin: 0 spacing('2');
+
+            h3 {
+                font-size: font-size('lg');
+            }
+
+            p {
+                font-size: font-size('sm');
+                line-height: 1.5;
+            }
+        }
+    }
+
+    // ===== CONTACTO MÓVIL =====
+    .contacto-container {
+        grid-template-columns: 1fr;
+        gap: spacing('6');
+    }
+
+    .info-contacto {
+        order: 2;
+    }
+
+    .formulario-contacto {
+        order: 1;
+    }
+
+    // ===== INTRO IMAGEN =====
+    .intro-imagen img {
+        max-width: 100%;
+    }
+
+    // ===== BOTONES MÓVIL =====
+    .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: spacing('4');
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: spacing('3');
+
+        .btn {
+            width: 100%;
+        }
+    }
+}
+
+// ===== MÓVILES MUY PEQUEÑOS (max-width: 360px) =====
+@media (max-width: 360px) {
+    header {
+        padding: spacing('4') spacing('2');
+
+        .logo {
+            margin-left: spacing('2');
+            padding: spacing('2') spacing('3');
+            max-width: 70px;
+            max-height: 40px;
+
+            img {
+                height: 16px !important;
+                max-height: 16px !important;
+                max-width: 25px !important;
+            }
+        }
+    }
+
+    nav {
+        margin-right: spacing('2');
+    }
+
+    main {
+        padding: 0 spacing('2');
+    }
+
+    section {
+        padding: spacing('6') spacing('4');
+    }
+
+    h1 {
+        font-size: font-size('2xl');
+    }
+
+    .sobre-mi-habilidades {
+        grid-template-columns: repeat(2, 1fr);
+        gap: spacing('2');
+
+        .habilidad {
+            padding: spacing('4') spacing('2');
+            font-size: font-size('xs');
+
+            i {
+                font-size: font-size('xl');
+            }
+        }
+    }
+
+    .grid-portfolio .card {
+        min-height: 280px;
+        padding: spacing('3');
+        margin: 0;
+    }
+
+    .formulario-contacto,
+    .info-contacto {
+        padding: spacing('4');
+    }
+}
+
+// ===== ORIENTACIÓN LANDSCAPE EN MÓVIL =====
+@media (max-width: 768px) and (orientation: landscape) {
+    header {
+        padding: spacing('2') 0;
+
+        .logo {
+            max-height: 40px;
+
+            img {
+                height: 16px !important;
+                max-height: 16px !important;
+            }
+        }
+    }
+
+    section {
+        padding: spacing('6') spacing('8');
+    }
+
+    .hero-section {
+        padding: spacing('10') 0;
+
+        .hero-title {
+            font-size: font-size('4xl');
+        }
+    }
+}

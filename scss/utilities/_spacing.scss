@@ -1,0 +1,232 @@
+// ===== utilities/_spacing.scss =====
+
+// ===== GENERACIÓN AUTOMÁTICA DE CLASES DE ESPACIADO =====
+@include generate-spacing('margin', ('t', 'b', 'l', 'r'));
+@include generate-spacing('padding', ('t', 'b', 'l', 'r'));
+
+// ===== CLASES UTILITARIAS DE ESPACIADO =====
+.m-auto {
+    margin: auto;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+// ===== ESPACIADO ESPECÍFICO CON MAPS =====
+@each $key, $value in $spacing {
+
+    // Margins
+    .m-#{$key} {
+        margin: $value;
+    }
+
+    .mt-#{$key} {
+        margin-top: $value;
+    }
+
+    .mb-#{$key} {
+        margin-bottom: $value;
+    }
+
+    .ml-#{$key} {
+        margin-left: $value;
+    }
+
+    .mr-#{$key} {
+        margin-right: $value;
+    }
+
+    .mx-#{$key} {
+        margin-left: $value;
+        margin-right: $value;
+    }
+
+    .my-#{$key} {
+        margin-top: $value;
+        margin-bottom: $value;
+    }
+
+    // Paddings
+    .p-#{$key} {
+        padding: $value;
+    }
+
+    .pt-#{$key} {
+        padding-top: $value;
+    }
+
+    .pb-#{$key} {
+        padding-bottom: $value;
+    }
+
+    .pl-#{$key} {
+        padding-left: $value;
+    }
+
+    .pr-#{$key} {
+        padding-right: $value;
+    }
+
+    .px-#{$key} {
+        padding-left: $value;
+        padding-right: $value;
+    }
+
+    .py-#{$key} {
+        padding-top: $value;
+        padding-bottom: $value;
+    }
+
+    // Gaps para flexbox y grid
+    .gap-#{$key} {
+        gap: $value;
+    }
+
+    .gap-x-#{$key} {
+        column-gap: $value;
+    }
+
+    .gap-y-#{$key} {
+        row-gap: $value;
+    }
+}
+
+// ===== ESPACIADO NEGATIVO =====
+@each $key, $value in $spacing {
+    .-m-#{$key} {
+        margin: -$value;
+    }
+
+    .-mt-#{$key} {
+        margin-top: -$value;
+    }
+
+    .-mb-#{$key} {
+        margin-bottom: -$value;
+    }
+
+    .-ml-#{$key} {
+        margin-left: -$value;
+    }
+
+    .-mr-#{$key} {
+        margin-right: -$value;
+    }
+}
+
+// ===== UTILIDADES DE ANCHO Y ALTO =====
+.w-auto {
+    width: auto;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-screen {
+    width: 100vw;
+}
+
+.h-auto {
+    height: auto;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+// Anchos específicos
+$widths: (
+    '25': 25%,
+    '50': 50%,
+    '75': 75%,
+    '33': 33.333333%,
+    '66': 66.666667%
+);
+
+@each $name, $width in $widths {
+    .w-#{$name} {
+        width: $width;
+    }
+}
+
+// ===== UTILIDADES DE POSICIONAMIENTO =====
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.sticky {
+    position: sticky;
+}
+
+.static {
+    position: static;
+}
+
+// Posiciones
+.top-0 {
+    top: 0;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+.left-0 {
+    left: 0;
+}
+
+.inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+// ===== Z-INDEX =====
+$z-indexes: (
+    '0': 0,
+    '10': 10,
+    '20': 20,
+    '30': 30,
+    '40': 40,
+    '50': 50,
+    'auto': auto
+);
+
+@each $name, $value in $z-indexes {
+    .z-#{$name} {
+        z-index: $value;
+    }
+}

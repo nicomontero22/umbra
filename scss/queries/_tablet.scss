@@ -1,0 +1,238 @@
+// ===== queries/_tablet.scss =====
+
+// ===== TABLET (max-width: 768px) =====
+@include responsive('md') {
+
+    // ===== HEADER TABLET =====
+    header {
+        flex-direction: column;
+        padding: spacing('8') spacing('4');
+        min-height: auto;
+
+        .logo {
+            margin: 0 0 spacing('4') 0;
+            padding: spacing('3') spacing('5');
+            max-width: 100px;
+            max-height: 50px;
+
+            img {
+                height: 20px !important;
+                max-height: 20px !important;
+                max-width: 35px !important;
+            }
+        }
+    }
+
+    // ===== NAVEGACIÓN TABLET =====
+    nav {
+        margin: 0;
+
+        .nav-list {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: spacing('3');
+
+            a {
+                padding: spacing('3') spacing('5');
+                font-size: font-size('xs');
+            }
+        }
+    }
+
+    // ===== CONTENIDO PRINCIPAL =====
+    main {
+        margin: spacing('8') auto;
+        padding: 0 spacing('4');
+    }
+
+    section {
+        padding: spacing('10') spacing('8');
+    }
+
+    // ===== TIPOGRAFÍA TABLET =====
+    h1 {
+        font-size: font-size('4xl');
+    }
+
+    h2 {
+        font-size: font-size('2xl');
+    }
+
+    p {
+        font-size: font-size('lg');
+        text-align: left;
+    }
+
+    // ===== INICIO TABLET =====
+    .inicio-columnas .bienvenido {
+        font-size: font-size('4xl');
+    }
+
+    // ===== HABILIDADES TABLET =====
+    .sobre-mi-habilidades {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: spacing('4');
+
+        .habilidad {
+            padding: spacing('5') spacing('3');
+
+            i {
+                font-size: font-size('2xl');
+            }
+        }
+    }
+
+    // ===== SERVICIOS TABLET =====
+    #trabajemos-juntos {
+        .servicios-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: spacing('4');
+        }
+
+        .servicio {
+            padding: spacing('5');
+        }
+    }
+
+    // ===== PORTFOLIO TABLET =====
+    .grid-portfolio {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-gap: spacing('6');
+        margin-top: spacing('8');
+
+        .card {
+            min-height: 340px;
+            padding: spacing('5');
+
+            .image-container {
+                aspect-ratio: 16/9;
+                margin-bottom: spacing('4');
+            }
+
+            h3 {
+                font-size: font-size('xl');
+                margin-bottom: spacing('3');
+            }
+
+            p {
+                font-size: font-size('sm');
+            }
+        }
+    }
+
+    // ===== CARDS TABLET =====
+    .cards-columnas {
+        grid-template-columns: 1fr;
+        gap: spacing('6');
+
+        .card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    // ===== CONTACTO TABLET =====
+    .contacto-container {
+        grid-template-columns: 1fr;
+        gap: spacing('8');
+    }
+
+    .info-contacto,
+    .formulario-contacto {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    // ===== FOOTER TABLET =====
+    footer {
+        .footer-main {
+            grid-template-columns: repeat(2, 1fr);
+            gap: spacing('8');
+            text-align: center;
+        }
+
+        .footer-links {
+            flex-wrap: wrap;
+            gap: spacing('4');
+        }
+    }
+
+    // ===== STATS TABLET =====
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: spacing('6');
+    }
+}
+
+// ===== TABLET GRANDE (max-width: 1024px) =====
+@include responsive('lg') {
+
+    // ===== CONTENIDO GENERAL =====
+    main {
+        max-width: 900px;
+    }
+
+    // ===== INICIO TABLET GRANDE =====
+    .inicio-columnas .bienvenido {
+        font-size: font-size('5xl');
+    }
+
+    // ===== PORTFOLIO TABLET GRANDE =====
+    .grid-portfolio {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: spacing('8');
+
+        .card {
+            min-height: 380px;
+            padding: spacing('6');
+        }
+    }
+
+    // ===== CARDS TABLET GRANDE =====
+    .cards-columnas {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: spacing('6');
+    }
+
+    // ===== SERVICIOS TABLET GRANDE =====
+    #trabajemos-juntos .servicios-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    // ===== HABILIDADES TABLET GRANDE =====
+    .sobre-mi-habilidades {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+}
+
+// ===== TABLET ORIENTACIÓN LANDSCAPE =====
+@media (max-width: 1024px) and (orientation: landscape) and (min-width: 769px) {
+    header {
+        flex-direction: row;
+        padding: spacing('4') spacing('6');
+
+        .logo {
+            margin: 0 0 0 spacing('6');
+        }
+
+        nav {
+            margin-right: spacing('6');
+        }
+    }
+
+    .hero-section {
+        padding: spacing('16') 0;
+
+        .hero-title {
+            font-size: font-size('5xl');
+        }
+    }
+
+    .stats-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .contacto-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}

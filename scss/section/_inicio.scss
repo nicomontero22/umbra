@@ -1,0 +1,83 @@
+// ===== sections/_inicio.scss =====
+
+// ===== SECCIÓN INICIO =====
+#inicio {
+    .hero-section {
+        text-align: center;
+        padding: spacing('20') 0;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, color('primary'), transparent);
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-size: font-size('6xl');
+            font-weight: 700;
+            margin-bottom: spacing('6');
+            @include gradient-text;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        .hero-subtitle {
+            font-size: font-size('xl');
+            color: color('medium-brown');
+            margin-bottom: spacing('10');
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: spacing('4');
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    .stats-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: spacing('6');
+        margin-top: spacing('16');
+
+        .stat-item {
+            text-align: center;
+            padding: spacing('6');
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: $border-radius;
+            transition: $transition-smooth;
+
+            &:hover {
+                background: rgba(color('primary'), 0.1);
+                transform: translateY(-5px);
+            }
+
+            .stat-number {
+                font-size: font-size('4xl');
+                font-weight: 700;
+                color: color('primary');
+                display: block;
+                margin-bottom: spacing('2');
+            }
+
+            .stat-label {
+                font-size: font-size('base');
+                color: color('medium-brown');
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}

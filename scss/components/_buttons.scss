@@ -1,0 +1,52 @@
+// ===== components/_buttons.scss =====
+
+// ===== BOTONES =====
+.btn {
+    @extend %button-base;
+    background: #{gradient('primary')};
+    margin-top: spacing('4');
+    margin-right: spacing('4');
+    @extend %hover-lift;
+
+    &.btn-primary {
+        background: #{gradient('primary')};
+    }
+
+    &.btn-secondary {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+
+        &:hover {
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+    }
+
+    &.btn-large {
+        padding: spacing('6') spacing('12');
+        font-size: font-size('lg');
+    }
+
+    &.btn-small {
+        padding: spacing('2') spacing('4');
+        font-size: font-size('sm');
+    }
+}
+
+// ===== TRABAJEMOS JUNTOS - BOTÓN ESPECIAL =====
+#trabajemos-juntos {
+    a {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        padding: spacing('4') spacing('8');
+        border-radius: $border-radius;
+        font-weight: bold;
+        text-decoration: none;
+        transition: $transition-bounce;
+        margin-top: spacing('8');
+
+        &:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+    }
+}

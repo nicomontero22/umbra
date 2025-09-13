@@ -1,0 +1,202 @@
+// ===== components/_navigation.scss =====
+
+// ===== NAVEGACIÓN =====
+nav {
+    margin-right: spacing('12');
+
+    .nav-list {
+        list-style: none;
+        display: flex;
+        gap: spacing('2');
+        align-items: center;
+        margin: 0;
+        padding: 0;
+
+        li {
+            position: relative;
+
+            a {
+                @extend %button-base;
+                color: white;
+                padding: spacing('4') spacing('6');
+                border-radius: 50px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                font-size: font-size('sm');
+                position: relative;
+                overflow: hidden;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 500;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                    transition: left 0.5s;
+                }
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.25);
+                    transform: translateY(-3px) scale(1.05);
+                    box-shadow: 0 10px 25px rgba(color('primary'), 0.4);
+                    border-color: rgba(255, 255, 255, 0.5);
+
+                    &::before {
+                        left: 100%;
+                    }
+                }
+
+                &:active {
+                    transform: translateY(-1px) scale(1.02);
+                }
+
+                &.active {
+                    background: rgba(255, 255, 255, 0.3);
+                    border-color: rgba(255, 255, 255, 0.6);
+                    box-shadow: 0 5px 15px rgba(color('primary'), 0.3);
+                }
+            }
+        }
+    }
+}
+
+// ===== NAVEGACIÓN MÓVIL =====
+.nav-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100vh;
+    background: rgba(color('dark-brown'), 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    transition: left 0.3s ease;
+
+    &.active {
+        left: 0;
+    }
+
+    .nav-mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: spacing('6');
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: font-size('2xl');
+            cursor: pointer;
+            padding: spacing('2');
+            border-radius: 50%;
+            transition: $transition-smooth;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .nav-mobile-list {
+        list-style: none;
+        padding: spacing('6') 0;
+
+        li {
+            margin-bottom: spacing('2');
+
+            a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: spacing('4') spacing('6');
+                font-size: font-size('lg');
+                transition: $transition-smooth;
+
+                &:hover {
+                    background: rgba(color('primary'), 0.2);
+                    transform: translateX(10px);
+                }
+
+                &.active {
+                    background: rgba(color('primary'), 0.3);
+                    border-left: 4px solid color('primary');
+                }
+            }
+        }
+    }
+}
+
+// ===== BOTÓN HAMBURGUESA =====
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: spacing('2');
+    z-index: 10000;
+
+    .hamburger-line {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 5px 0;
+        transition: $transition-smooth;
+        transform-origin: center;
+
+        &:nth-child(1) {
+            transform: translateY(0);
+        }
+
+        &:nth-child(2) {
+            opacity: 1;
+        }
+
+        &:nth-child(3) {
+            transform: translateY(0);
+        }
+    }
+
+    &.active {
+        .hamburger-line {
+            &:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    }
+}
+
+// ===== OVERLAY PARA MÓVIL =====
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &.active {
+        opacity: 1;
+    }
+}
