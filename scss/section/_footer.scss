@@ -8,17 +8,21 @@ footer {
     padding: spacing('10') 0;
     margin-top: spacing('16');
     position: relative;
-    overflow: hidden;
+    overflow-x: clip; // evita scroll horizontal
+    contain: paint; // optimiza el render
 
     &::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: -50%;
-        width: 200%;
-        height: 100%;
-        background: linear-gradient(45deg, transparent, rgba(color('tertiary'), 0.1), transparent);
-        animation: shimmer 3s linear infinite;
+        inset: 0; // top:0; right:0; bottom:0; left:0
+        pointer-events: none;
+
+        background: linear-gradient(45deg,
+                transparent,
+                rgba(color('tertiary'), 0.1),
+                transparent);
+        background-size: 200% 100%;
+        animation: gradientMove 3s linear infinite; // usa animación de fondo
     }
 
     .footer-content {

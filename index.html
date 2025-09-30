@@ -1,44 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Umbra - Soluciones Digitales Creativas</title>
-    <meta name="description" content="Umbra - Transformamos ideas en experiencias digitales únicas. Diseño, estrategia y tecnología para potenciar tu marca.">
+    <meta name="description"
+        content="Umbra - Transformamos ideas en experiencias digitales únicas. Diseño, estrategia y tecnología para potenciar tu marca.">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <!-- HEADER MINIMALISTA -->
-    <header class="header-minimal">
+    <header>
+        <!-- Logo -->
         <div class="logo">
-            <a href="index.html"><img src="assets/img/Gemini_Generated_Image_9hucd99hucd99huc.pngnom" alt="Logo de Umbra"></a>
+            <img src="assets/img/logo.png" alt="Logo Umbra">
         </div>
+
+        <!-- Checkbox oculto para controlar el menú (SIN JavaScript) -->
+        <input type="checkbox" id="menuToggle" class="menu-toggle-checkbox">
+
+        <!-- Botón hamburguesa (label conectado al checkbox) -->
+        <label for="menuToggle" class="menu-toggle" aria-label="Menú de navegación">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Navegación -->
         <nav>
             <ul class="nav-list">
-                <li><a href="pages/acercade.html">Conoce Umbra</a></li>
-                <li><a href="pages/sobremi.html">Sobre mí</a></li>
-                <li><a href="pages/portfolio.html">Portfolio</a></li>
-                <li><a href="pages/trabajemosjuntos.html">Trabajemos Juntos</a></li>
-                <li><a href="pages/contacto.html">Contacto</a></li>
+                <li><a href="pages/sobremi.html">SOBRE MÍ</a></li>
+                <li><a href="pages/portfolio.html">PORTFOLIO</a></li>
+                <li><a href="pages/trabajemosjuntos.html">TRABAJEMOS JUNTXS</a></li>
+                <li><a href="pages/acercade.html">ACERCA DE</a></li>
+                <li><a href="pages/contacto.html">CONTACTO</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <main class="hero-landing">
         <section class="hero-content">
-            <h1 class="hero-title">Transformamos ideas en<br><span class="highlight">experiencias digitales</span></h1>
-            
+            <h1 class="hero-title">
+                Transformamos ideas en<br>
+                <span class="highlight">experiencias digitales</span>
+            </h1>
             <p class="hero-subtitle">
                 Diseño, estrategia y tecnología para potenciar la presencia de tu marca en el entorno digital.
             </p>
-            
             <div class="hero-cta">
                 <a href="pages/acercade.html" class="btn btn-primary">Descubre Umbra</a>
                 <a href="pages/portfolio.html" class="btn btn-secondary">Ver trabajos</a>
             </div>
         </section>
-        
+
         <section class="hero-visual">
             <div class="hero-image">
                 <img src="assets/img/Imagenpresentacion.jpeg" alt="Umbra - Diseño digital creativo">
@@ -46,7 +61,7 @@
         </section>
     </main>
 
-    <!-- FOOTER MINIMAL -->
+    <!-- FOOTER -->
     <footer class="footer-minimal">
         <p>&copy; 2025 Umbra. Todos los derechos reservados.</p>
     </footer>
