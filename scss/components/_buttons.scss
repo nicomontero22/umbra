@@ -1,52 +1,80 @@
-// ===== components/_buttons.scss =====
+// Botones reutilizables
 
-// ===== BOTONES =====
 .btn {
-    @extend %button-base;
-    background: #{gradient('primary')};
-    margin-top: spacing('4');
-    margin-right: spacing('4');
-    @extend %hover-lift;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-xs;
+  padding: $space-sm $space-xl;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: $transition-base;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
 
-    &.btn-primary {
-        background: #{gradient('primary')};
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba($color-light, 0.15);
+    transform: translateX(-100%);
+    transition: transform 0.45s ease;
+  }
 
-    &.btn-secondary {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-
-        &:hover {
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-    }
-
-    &.btn-large {
-        padding: spacing('6') spacing('12');
-        font-size: font-size('lg');
-    }
-
-    &.btn-small {
-        padding: spacing('2') spacing('4');
-        font-size: font-size('sm');
-    }
+  &:hover::after {
+    transform: translateX(0);
+  }
 }
 
-// ===== TRABAJEMOS JUNTOS - BOTÓN ESPECIAL =====
-#trabajemos-juntos {
-    a {
-        display: inline-block;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        padding: spacing('4') spacing('8');
-        border-radius: $border-radius;
-        font-weight: bold;
-        text-decoration: none;
-        transition: $transition-bounce;
-        margin-top: spacing('8');
+.btn-primary {
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  color: $color-light;
+  box-shadow: $shadow-soft;
 
-        &:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-    }
+  &:hover {
+    box-shadow: $shadow-hover;
+    transform: translateY(-3px);
+  }
+}
+
+.btn-secondary {
+  background: $color-light;
+  color: $color-primary;
+  border: 1px solid $color-border;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.35);
+    transform: translateY(-3px);
+    box-shadow: $shadow-card;
+  }
+}
+
+.btn-cta {
+  @extend .btn;
+  background: linear-gradient(135deg, $color-secondary, $color-primary);
+  color: $color-light;
+  padding: $space-sm $space-2xl;
+  box-shadow: $shadow-soft;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-whatsapp {
+  @extend .btn;
+  background: #25d366;
+  color: $color-light;
+  padding: $space-sm $space-2xl;
+  box-shadow: $shadow-soft;
+
+  &:hover {
+    background: #1ebe5a;
+    transform: translateY(-2px);
+  }
 }

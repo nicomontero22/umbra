@@ -1,0 +1,122 @@
+// Página de contacto
+
+#contacto {
+  @include container;
+  padding-block: $space-4xl;
+  display: grid;
+  gap: $space-3xl;
+
+  h1 {
+    text-align: center;
+    @include text-gradient;
+  }
+
+  .subtitulo-contacto {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .contacto-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: $space-2xl;
+
+    @include respond(lg) {
+      grid-template-columns: 1fr;
+    }
+
+    .info-contacto,
+    .formulario-contacto {
+      border-radius: $radius-lg;
+      background: $color-surface;
+      padding: $space-2xl;
+      box-shadow: $shadow-card;
+      display: grid;
+      gap: $space-lg;
+    }
+
+    .info-contacto {
+      .contacto-item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: $space-sm;
+        align-items: center;
+
+        i {
+          font-size: 1.3rem;
+          color: $color-primary;
+          background: rgba($color-primary, 0.15);
+          width: 48px;
+          height: 48px;
+          border-radius: 14px;
+          @include flex-center;
+        }
+
+        a {
+          color: $color-primary;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .redes-sociales-section {
+    display: grid;
+    gap: $space-xl;
+    text-align: center;
+
+    .redes-sociales-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: $space-md;
+
+      .red-social {
+        border-radius: $radius-md;
+        padding: $space-md;
+        background: $color-surface;
+        display: flex;
+        align-items: center;
+        gap: $space-md;
+        box-shadow: $shadow-soft;
+        transition: $transition-base;
+
+        i {
+          font-size: 1.5rem;
+        }
+
+        &.linkedin { color: #0a66c2; }
+        &.instagram { color: #e1306c; }
+        &.behance { color: #0057ff; }
+        &.dribbble { color: #ea4c89; }
+
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: $shadow-hover;
+        }
+
+        .red-info {
+          display: grid;
+          gap: $space-xxs;
+          color: $color-dark;
+        }
+      }
+    }
+  }
+
+  .cta-contacto {
+    text-align: center;
+    border-radius: $radius-lg;
+    padding: $space-3xl;
+    background: linear-gradient(135deg, rgba($color-primary, 0.14), rgba($color-secondary, 0.14));
+    box-shadow: $shadow-soft;
+
+    h2 {
+      margin-bottom: $space-sm;
+    }
+
+    p {
+      margin-bottom: $space-md;
+    }
+  }
+}

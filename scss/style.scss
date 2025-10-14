@@ -1,36 +1,20 @@
-// ===== ARCHIVO PRINCIPAL: main.scss =====
+// Archivo principal de estilos (SASS)
 
-// 1. Importar Base (variables, mixins, funciones, reset)
 @import 'base/variables';
 @import 'base/mixins';
-@import 'base/functions';
 @import 'base/reset';
 @import 'base/typography';
-@import 'base/animations';
+@import 'base/utilities';
 
-// 2. Importar Components (elementos reutilizables)
 @import 'components/buttons';
 @import 'components/cards';
 @import 'components/forms';
 @import 'components/navigation';
 
-// 3. Importar Sections (secciones específicas)
 @import 'sections/header';
-@import 'sections/inicio';
+@import 'sections/hero';
 @import 'sections/sobre-mi';
 @import 'sections/portfolio';
 @import 'sections/trabajemos-juntos';
 @import 'sections/contacto';
 @import 'sections/footer';
-
-// 4. Importar Utilities (clases utilitarias)
-@import 'utilities/spacing';
-@import 'utilities/colors';
-@import 'utilities/flexbox';
-@import 'utilities/grid';
-@import 'utilities/helpers';
-
-// 5. Importar Queries (responsive design)
-@import 'queries/mobile';
-@import 'queries/tablet';
-@import 'queries/desktop';

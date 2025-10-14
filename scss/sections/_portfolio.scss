@@ -1,0 +1,36 @@
+// Página de portfolio
+
+#portfolio {
+  @include container;
+  padding-block: $space-4xl;
+  display: grid;
+  gap: $space-3xl;
+
+  h1 {
+    text-align: center;
+    @include text-gradient;
+  }
+
+  .galeria-proyectos {
+    display: grid;
+    gap: $space-2xl;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: $space-3xl;
+    border-radius: $radius-lg;
+    background: linear-gradient(135deg, rgba($color-primary, 0.12), rgba($color-secondary, 0.12));
+    box-shadow: $shadow-soft;
+
+    h2 {
+      margin-bottom: $space-md;
+      color: $color-dark;
+    }
+
+    p {
+      max-width: 540px;
+      margin: 0 auto $space-xl;
+    }
+  }
+}
