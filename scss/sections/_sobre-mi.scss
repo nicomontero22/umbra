@@ -1,0 +1,45 @@
+// Página sobre mí
+
+#sobre-mi {
+  @include container;
+  padding-block: $space-4xl;
+  display: grid;
+  gap: $space-2xl;
+
+  h1 {
+    @include text-gradient;
+    text-align: center;
+  }
+
+  h2 {
+    color: $color-dark;
+  }
+
+  .sobre-mi-habilidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $space-md;
+
+    .habilidad {
+      @include flex-center;
+      gap: $space-sm;
+      padding: $space-sm $space-md;
+      border-radius: $radius-sm;
+      border: 1px solid $color-border;
+      background: rgba($color-light, 0.95);
+      color: $color-dark;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba($color-primary, 0.08);
+      transition: $transition-base;
+
+      i {
+        color: $color-primary;
+      }
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-soft;
+      }
+    }
+  }
+}

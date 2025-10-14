@@ -1,0 +1,12 @@
+{
+  "name": "umbra-site",
+  "version": "1.0.0",
+  "description": "Sitio estático de Umbra con hoja de estilos compilada desde SASS.",
+  "scripts": {
+    "build:sass": "sass --style=expanded scss/style.scss assets/css/style.css",
+    "watch:sass": "sass --watch scss/style.scss:assets/css/style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

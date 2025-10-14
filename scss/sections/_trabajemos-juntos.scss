@@ -1,0 +1,90 @@
+// Página Trabajemos Juntos
+
+#trabajemos-juntos {
+  @include container;
+  padding-block: $space-4xl;
+  display: grid;
+  gap: $space-2xl;
+
+  h1 {
+    @include text-gradient;
+    text-align: center;
+  }
+
+  h2 {
+    color: $color-dark;
+  }
+
+  p {
+    font-size: 1.05rem;
+  }
+
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: $space-md;
+
+    .servicio {
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+      padding: $space-sm $space-md;
+      border-radius: $radius-sm;
+      border: 1px solid $color-border;
+      background: rgba($color-light, 0.95);
+      font-weight: 600;
+      color: $color-dark;
+
+      i {
+        color: $color-primary;
+      }
+    }
+  }
+
+  ol,
+  ul {
+    padding-left: $space-xl;
+    display: grid;
+    gap: $space-sm;
+
+    li {
+      position: relative;
+      padding-left: $space-sm;
+      color: $color-muted;
+
+      strong {
+        color: $color-dark;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: pasos;
+
+    li {
+      counter-increment: pasos;
+
+      &::before {
+        content: counter(pasos) ".";
+        position: absolute;
+        left: 0;
+        color: $color-primary;
+        font-weight: 700;
+      }
+    }
+  }
+
+  ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: $color-secondary;
+    font-size: 1.1rem;
+  }
+
+  a {
+    color: $color-primary;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
