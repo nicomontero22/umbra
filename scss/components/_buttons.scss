@@ -1,52 +1,159 @@
-// ===== components/_buttons.scss =====
+// ========================================
+// BOTONES
+// ========================================
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
 
-// ===== BOTONES =====
 .btn {
-    @extend %button-base;
-    background: #{gradient('primary')};
-    margin-top: spacing('4');
-    margin-right: spacing('4');
-    @extend %hover-lift;
+    display: inline-block;
+    background: $gradient-primary;
+    color: $text-white;
+    padding: 1.2rem 2.5rem;
+    border-radius: $radius-full;
+    text-decoration: none;
+    font-weight: $font-weight-bold;
+    transition: all 0.4s $transition-bounce;
+    margin: $spacing-sm $spacing-sm 0 0;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    box-shadow: $shadow-button;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    font-size: $font-size-sm;
+    cursor: pointer;
 
-    &.btn-primary {
-        background: #{gradient('primary')};
+    // Efecto de gradiente invertido
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, $color-primary-dark 0%, $color-primary 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 0;
     }
 
-    &.btn-secondary {
-        background: linear-gradient(135deg, #667eea, #764ba2);
+    // Efecto de onda
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        transform: translate(-50%, -50%);
+        transition: width 0.5s ease, height 0.5s ease;
+        z-index: 0;
+    }
 
-        &:hover {
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    &:hover {
+        &::before {
+            opacity: 1;
         }
+
+        &::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        transform: translateY(-8px) scale(1.08);
+        box-shadow: 0 20px 50px rgba($color-primary, 0.5),
+        0 8px 20px rgba(0, 0, 0, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
     }
 
-    &.btn-large {
-        padding: spacing('6') spacing('12');
-        font-size: font-size('lg');
+    &:active {
+        transform: translateY(-4px) scale(1.05);
     }
 
-    &.btn-small {
-        padding: spacing('2') spacing('4');
-        font-size: font-size('sm');
+    span {
+        position: relative;
+        z-index: 1;
     }
 }
 
-// ===== TRABAJEMOS JUNTOS - BOTÓN ESPECIAL =====
-#trabajemos-juntos {
-    a {
-        display: inline-block;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        padding: spacing('4') spacing('8');
-        border-radius: $border-radius;
-        font-weight: bold;
-        text-decoration: none;
-        transition: $transition-bounce;
-        margin-top: spacing('8');
+// === BOTÓN SECUNDARIO ===
+.btn-secondary {
+    background: $gradient-secondary;
+    box-shadow:
+        0 8px 25px rgba($color-secondary, 0.35),
+        0 3px 10px rgba(0, 0, 0, 0.1);
 
-        &:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
+    &::before {
+        background: linear-gradient(135deg, $color-secondary-dark 0%, $color-secondary 100%);
+    }
+
+    &:hover {
+        box-shadow:
+            0 20px 50px rgba($color-secondary, 0.5),
+            0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+
+// === BOTÓN OUTLINE ===
+.btn-outline {
+    background: transparent;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+
+    &::before {
+        background: $gradient-primary;
+    }
+
+    &:hover {
+        color: $text-white;
+        border-color: transparent;
+    }
+}
+
+// === TAMAÑOS DE BOTONES ===
+.btn-sm {
+    padding: 0.8rem 1.8rem;
+    font-size: $font-size-xs;
+}
+
+.btn-lg {
+    padding: 1.5rem 3rem;
+    font-size: $font-size-base;
+}
+
+// === BOTÓN DESHABILITADO ===
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+// === BOTÓN CON ÍCONO ===
+.btn-icon {
+    @include flex-center;
+    gap: $spacing-xs;
+
+    i {
+        transition: transform 0.3s ease;
+    }
+
+    &:hover i {
+        transform: translateX(5px);
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: $breakpoint-xs) {
+    .btn {
+        padding: 1rem 2rem;
+        font-size: $font-size-xs;
+    }
+
+    .btn-sm {
+        padding: 0.7rem 1.5rem;
+    }
+
+    .btn-lg {
+        padding: 1.2rem 2.5rem;
     }
 }

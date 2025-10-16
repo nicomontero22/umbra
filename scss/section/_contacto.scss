@@ -1,11 +1,15 @@
-// ===== sections/_contacto.scss =====
+// ========================================
+// SECCIÓN CONTACTO
+// ========================================
 
-// ===== CONTACTO =====
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
 .subtitulo-contacto {
     text-align: center;
-    font-size: font-size('xl');
-    color: color('medium-brown');
-    margin-bottom: spacing('12');
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin-bottom: $spacing-xl;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -14,150 +18,124 @@
 .contacto-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: spacing('12');
-    margin-top: spacing('12');
+    gap: $spacing-xl;
+    margin-top: $spacing-xl;
 }
 
-// ===== INFORMACIÓN DE CONTACTO =====
-.info-contacto {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: spacing('8');
-    box-shadow: 0 10px 30px rgba(color('primary'), 0.1);
-    border: 1px solid rgba(color('primary'), 0.2);
+// === INFO CONTACTO ===
+.info-contacto,
+.formulario-contacto {
+    @include glassmorphism(rgba(255, 255, 255, 0.85), $blur-md, rgba($color-primary, 0.25));
+    border-radius: $radius-xl;
+    padding: $spacing-xl;
+    box-shadow:
+        0 15px 40px rgba($color-primary, 0.15),
+        0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba($color-primary, 0.25);
+    transition: all 0.4s $transition-smooth;
+
+    &:hover {
+        box-shadow:
+            0 20px 50px rgba($color-primary, 0.2),
+            0 8px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+    }
 
     h2 {
-        color: color('primary');
-        margin-bottom: spacing('8');
+        color: $color-primary;
+        margin-bottom: $spacing-lg;
         padding-left: 0;
+        font-size: $font-size-xl;
 
         &::before {
             display: none;
         }
 
         i {
-            margin-right: spacing('2');
-            font-size: font-size('xl');
-        }
-    }
-
-    .contacto-item {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: spacing('6');
-        padding: spacing('4');
-        background: rgba(color('primary'), 0.05);
-        border-radius: 15px;
-        transition: $transition-smooth;
-
-        &:hover {
-            background: rgba(color('primary'), 0.1);
-            transform: translateX(5px);
-        }
-
-        i {
-            font-size: font-size('xl');
-            color: color('primary');
-            margin-right: spacing('4');
-            margin-top: spacing('1');
-            width: 25px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .contacto-detalle {
-            flex: 1;
-
-            strong {
-                display: block;
-                color: color('accent-brown');
-                font-weight: 600;
-                margin-bottom: spacing('1');
-                font-size: font-size('base');
-            }
-
-            a {
-                color: color('medium-brown');
-                text-decoration: none;
-                transition: color 0.3s ease;
-                font-size: font-size('base');
-
-                &:hover {
-                    color: color('primary');
-                    text-decoration: underline;
-                }
-            }
-
-            p {
-                color: color('medium-brown');
-                margin: 0;
-                font-size: font-size('base');
-                line-height: 1.5;
-            }
-        }
-    }
-
-    .social-links {
-        display: flex;
-        gap: spacing('4');
-        justify-content: center;
-        margin-top: spacing('8');
-
-        a {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: color('primary');
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: $transition-smooth;
-            font-size: font-size('xl');
-
-            &:hover {
-                transform: translateY(-3px) scale(1.1);
-                box-shadow: 0 10px 20px rgba(color('primary'), 0.4);
-            }
-
-            &.facebook {
-                background: #3b5998;
-            }
-
-            &.twitter {
-                background: #1da1f2;
-            }
-
-            &.linkedin {
-                background: #0077b5;
-            }
-
-            &.instagram {
-                background: #e4405f;
-            }
+            margin-right: $spacing-xs;
+            font-size: $font-size-xl;
         }
     }
 }
 
-// ===== MAPA (SI SE INCLUYE) =====
-.contact-map {
-    margin-top: spacing('12');
-    border-radius: $border-radius;
-    overflow: hidden;
-    height: 400px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+// === ITEMS DE CONTACTO ===
+.contacto-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: $spacing-lg;
+    padding: $spacing-md;
+    background: rgba($color-primary, 0.06);
+    border-radius: $radius-lg;
+    transition: all 0.3s $transition-smooth;
+    border: 1px solid rgba($color-primary, 0.1);
 
-    iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        filter: grayscale(100%);
-        transition: $transition-smooth;
+    &:hover {
+        background: rgba($color-primary, 0.12);
+        transform: translateX(10px);
+        box-shadow: 0 4px 15px rgba($color-primary, 0.15);
+
+        i {
+            transform: scale(1.2) rotate(10deg);
+        }
+    }
+
+    i {
+        font-size: $font-size-xl;
+        color: $color-primary;
+        margin-right: $spacing-md;
+        margin-top: 0.2rem;
+        width: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+}
+
+.contacto-detalle {
+    flex: 1;
+
+    strong {
+        display: block;
+        color: $text-light;
+        font-weight: $font-weight-semibold;
+        margin-bottom: 0.3rem;
+    }
+
+    a {
+        color: $text-secondary;
+        text-decoration: none;
+        transition: color 0.3s ease;
 
         &:hover {
-            filter: grayscale(0%);
+            color: $color-primary;
+            text-decoration: underline;
+        }
+    }
+
+    span {
+        color: $text-secondary;
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: $breakpoint-md) {
+    .contacto-container {
+        grid-template-columns: 1fr;
+        gap: $spacing-lg;
+    }
+}
+
+@media (max-width: $breakpoint-xs) {
+    .info-contacto,
+    .formulario-contacto {
+        padding: $spacing-lg;
+    }
+
+    .contacto-item {
+        padding: $spacing-sm;
+
+        i {
+            font-size: $font-size-lg;
+            width: 25px;
         }
     }
 }

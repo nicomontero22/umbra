@@ -1,0 +1,104 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+main {
+    max-width: 1200px;
+    margin: $spacing-3xl auto;
+    padding: 0 $spacing-lg;
+    position: relative;
+    z-index: $z-index-base;
+    @include floating-particles;
+}
+
+section {
+    @include glassmorphism($glass-bg-strong, $blur-xl, rgba(255, 255, 255, 0.4));
+    padding: 4.5rem;
+    border-radius: $radius-3xl;
+    box-shadow: $shadow-section;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    animation: sectionAppear 0.8s $transition-smooth;
+    margin-bottom: $spacing-xl;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, $color-primary 0%, $color-primary-dark 25%, $color-primary-light 50%, $color-primary-dark 75%, $color-primary 100%);
+        background-size: 200% 100%;
+        animation: borderSlide 4s linear infinite;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        pointer-events: none;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        animation: sectionGlow 3s ease-in-out infinite;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: $radius-xl;
+    margin: $spacing-xl auto;
+    display: block;
+    box-shadow: 0 20px 60px rgba($color-primary, 0.25), 0 8px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.6s $transition-bounce;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+
+    &:hover {
+        transform: translateY(-20px) scale(1.05) rotate(-2deg);
+        box-shadow: 0 30px 80px rgba($color-primary, 0.35), 0 15px 30px rgba(0, 0, 0, 0.18);
+    }
+}
+
+main img:not(header .logo img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: $radius-lg;
+    margin: $spacing-xl auto;
+    display: block;
+    box-shadow: 0 15px 35px rgba($color-primary, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+@media(max-width:$breakpoint-md) {
+    main {
+        margin: $spacing-lg auto;
+        padding: 0 $spacing-md;
+    }
+
+    section {
+        padding: $spacing-xl;
+        border-radius: $radius-xl;
+    }
+}
+
+@media(max-width:$breakpoint-xs) {
+    main {
+        padding: 0 $spacing-sm;
+    }
+
+    section {
+        padding: $spacing-lg;
+        border-radius: $radius-lg;
+    }
+}

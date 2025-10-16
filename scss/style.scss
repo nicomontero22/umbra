@@ -1,36 +1,42 @@
-// ===== ARCHIVO PRINCIPAL: main.scss =====
+// 1. Framework: Variables, Funciones y Mixins
+@use 'base/variables';
+@use 'base/functions';
+@use 'base/mixins';
 
-// 1. Importar Base (variables, mixins, funciones, reset)
-@import 'base/variables';
-@import 'base/mixins';
-@import 'base/functions';
-@import 'base/reset';
-@import 'base/typography';
-@import 'base/animations';
+// 2. Base y Estilos Globales
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/animations';
+@use 'base/base'; // <-- Nuevo archivo con tus estilos generales
 
-// 2. Importar Components (elementos reutilizables)
-@import 'components/buttons';
-@import 'components/cards';
-@import 'components/forms';
-@import 'components/navigation';
+// 3. Componentes Reutilizables
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/navigation';
 
-// 3. Importar Sections (secciones específicas)
-@import 'sections/header';
-@import 'sections/inicio';
-@import 'sections/sobre-mi';
-@import 'sections/portfolio';
-@import 'sections/trabajemos-juntos';
-@import 'sections/contacto';
-@import 'sections/footer';
+// 4. Secciones de la Página
+@use 'section/header';
+@use 'section/footer';
+@use 'section/inicio';
+@use 'section/sobremi';
+@use 'section/portfolio';
+@use 'section/trabajemosjuntos';
+@use 'section/contacto';
+@use 'section/acercade';
 
-// 4. Importar Utilities (clases utilitarias)
-@import 'utilities/spacing';
-@import 'utilities/colors';
-@import 'utilities/flexbox';
-@import 'utilities/grid';
-@import 'utilities/helpers';
+// 5. Clases de Utilidad
+@use 'utilities/colors';
+@use 'utilities/spacing';
+@use 'utilities/flexbox';
+@use 'utilities/grid';
+@use 'utilities/helpers';
 
-// 5. Importar Queries (responsive design)
-@import 'queries/mobile';
-@import 'queries/tablet';
-@import 'queries/desktop';
+// 6. Media Queries
+@use 'queries/desktop';
+@use 'queries/tablet';
+@use 'queries/mobile';
+
+// 7. Importaciones Externas
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');

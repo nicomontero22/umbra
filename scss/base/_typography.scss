@@ -1,23 +1,31 @@
-// ===== base/_typography.scss =====
+// ========================================
+// TIPOGRAFÍA
+// ========================================
 
-// ===== TIPOGRAFÍA =====
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// === HEADINGS ===
 h1 {
-    font-size: font-size('6xl');
-    font-weight: 700;
+    font-size: $font-size-5xl;
+    font-weight: $font-weight-extrabold;
     text-align: center;
-    margin-bottom: spacing('12');
-    @include gradient-text;
+    margin-bottom: $spacing-xl;
+    @include gradient-text($gradient-primary);
     position: relative;
-    animation: titleGlow 2s ease-in-out infinite alternate;
+    animation: titleGradient 4s ease infinite, titleFloat 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba($color-primary, 0.3);
+    letter-spacing: $letter-spacing-tight;
 }
 
 h2 {
-    font-size: font-size('3xl');
-    color: color('accent-brown');
-    margin: spacing('12') 0 spacing('6') 0;
-    font-weight: 600;
+    font-size: $font-size-2xl;
+    color: $text-light;
+    margin: $spacing-xl 0 $spacing-lg 0;
+    font-weight: $font-weight-bold;
     position: relative;
-    padding-left: spacing('8');
+    padding-left: 2.5rem;
+    letter-spacing: -0.5px;
 
     &::before {
         content: '';
@@ -25,61 +33,643 @@ h2 {
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        width: 4px;
-        height: 80%;
-        background: linear-gradient(180deg, color('primary'), color('secondary'));
-        border-radius: 2px;
-        animation: pulse 2s ease-in-out infinite;
+        width: 6px;
+        height: 85%;
+        background: linear-gradient(180deg, $color-primary, $color-primary-dark);
+        border-radius: 3px;
+        box-shadow: 0 0 15px rgba($color-primary, 0.5);
+        animation: h2Pulse 2s ease-in-out infinite;
     }
 }
 
 h3 {
-    font-size: font-size('2xl');
-    color: color('primary');
-    font-weight: 700;
-    line-height: 1.3;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-md;
+    color: $text-secondary;
+}
+
+h4 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-sm;
+    color: $text-secondary;
+}
+
+h5 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+    color: $text-secondary;
+}
+
+h6 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-xs;
+    color: $text-secondary;
+}
+
+// === PÁRRAFOS ===
+p {
+    font-size: $font-size-md;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-lg;
+    color: $text-secondary;
+    text-align: justify;
+    position: relative;
+    @include transition-all;
+
+    &:hover {
+        color: $text-tertiary;
+        transform: translateX(8px);
+        text-shadow: 0 2px 8px rgba($color-primary, 0.1);
+    }
+}
+
+// === CLASES UTILITARIAS DE TEXTO ===
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+// === TAMAÑOS DE TEXTO ===
+.text-xs {
+    font-size: $font-size-xs;
+}
+
+.text-sm {
+    font-size: $font-size-sm;
+}
+
+.text-base {
+    font-size: $font-size-base;
+}
+
+.text-lg {
+    font-size: $font-size-lg;
+}
+
+.text-xl {
+    font-size: $font-size-xl;
+}
+
+.text-2xl {
+    font-size: $font-size-2xl;
+}
+
+.text-3xl {
+    font-size: $font-size-3xl;
+}
+
+// === PESOS DE FUENTE ===
+.font-light {
+    font-weight: $font-weight-light;
+}
+
+.font-regular {
+    font-weight: $font-weight-regular;
+}
+
+.font-medium {
+    font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+    font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+    font-weight: $font-weight-bold;
+}
+
+.font-extrabold {
+    font-weight: $font-weight-extrabold;
+}
+
+// === COLORES DE TEXTO ===
+.text-primary {
+    color: $color-primary;
+}
+
+.text-secondary {
+    color: $color-secondary;
+}
+
+.text-white {
+    color: $text-white;
+}
+
+.text-light {
+    color: $text-light;
+}
+
+// === GRADIENTE DE TEXTO ===
+.text-gradient {
     @include gradient-text;
 }
 
+// === EFECTOS DE TEXTO ===
+.text-shadow {
+    text-shadow: 0 2px 8px rgba($color-primary, 0.3);
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba($color-primary, 0.6);
+}
+
+// === RESPONSIVE TYPOGRAPHY ===
+@media (max-width: $breakpoint-md) {
+    h1 {
+        font-size: $font-size-3xl;
+    }
+
+    h2 {
+        font-size: $font-size-xl;
+    }
+
+    h3 {
+        font-size: $font-size-lg;
+    }
+
+    p {
+        font-size: $font-size-base;
+        text-align: left;
+    }
+}
+
+@media (max-width: $breakpoint-xs) {
+    h1 {
+        font-size: $font-size-2xl;
+        letter-spacing: -0.5px;
+    }
+
+    h2 {
+        font-size: $font-size-lg;
+    }
+
+    h3 {
+        font-size: $font-size-base;
+    }
+
+    p {
+        font-size: $font-size-sm;
+    }
+}
+
+// === HEADINGS ===
+h1 {
+    font-size: $font-size-5xl;
+    font-weight: $font-weight-extrabold;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    @include gradient-text($gradient-primary);
+    position: relative;
+    animation: titleGradient 4s ease infinite, titleFloat 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba($color-primary, 0.3);
+    letter-spacing: $letter-spacing-tight;
+}
+
+h2 {
+    font-size: $font-size-2xl;
+    color: $text-light;
+    margin: $spacing-xl 0 $spacing-lg 0;
+    font-weight: $font-weight-bold;
+    position: relative;
+    padding-left: 2.5rem;
+    letter-spacing: -0.5px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 85%;
+        background: linear-gradient(180deg, $color-primary, $color-primary-dark);
+        border-radius: 3px;
+        box-shadow: 0 0 15px rgba($color-primary, 0.5);
+        animation: h2Pulse 2s ease-in-out infinite;
+    }
+}
+
+h3 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-md;
+    color: $text-secondary;
+}
+
+h4 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-sm;
+    color: $text-secondary;
+}
+
+h5 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+    color: $text-secondary;
+}
+
+h6 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-xs;
+    color: $text-secondary;
+}
+
+// === PÁRRAFOS ===
 p {
-    font-size: font-size('xl');
-    line-height: 1.8;
-    margin-bottom: spacing('8');
-    color: color('medium-brown');
+    font-size: $font-size-md;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-lg;
+    color: $text-secondary;
     text-align: justify;
     position: relative;
-    transition: $transition-smooth;
+    @include transition-all;
 
     &:hover {
-        color: color('light-brown');
-        transform: translateX(5px);
+        color: $text-tertiary;
+        transform: translateX(8px);
+        text-shadow: 0 2px 8px rgba($color-primary, 0.1);
     }
 }
 
-// ===== ESTILOS ESPECÍFICOS PARA INICIO =====
-.inicio-columnas {
-    .bienvenido {
-        font-size: font-size('5xl');
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: spacing('12');
-        @include gradient-text;
+// === CLASES UTILITARIAS DE TEXTO ===
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+// === TAMAÑOS DE TEXTO ===
+.text-xs {
+    font-size: $font-size-xs;
+}
+
+.text-sm {
+    font-size: $font-size-sm;
+}
+
+.text-base {
+    font-size: $font-size-base;
+}
+
+.text-lg {
+    font-size: $font-size-lg;
+}
+
+.text-xl {
+    font-size: $font-size-xl;
+}
+
+.text-2xl {
+    font-size: $font-size-2xl;
+}
+
+.text-3xl {
+    font-size: $font-size-3xl;
+}
+
+// === PESOS DE FUENTE ===
+.font-light {
+    font-weight: $font-weight-light;
+}
+
+.font-regular {
+    font-weight: $font-weight-regular;
+}
+
+.font-medium {
+    font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+    font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+    font-weight: $font-weight-bold;
+}
+
+.font-extrabold {
+    font-weight: $font-weight-extrabold;
+}
+
+// === COLORES DE TEXTO ===
+.text-primary {
+    color: $color-primary;
+}
+
+.text-secondary {
+    color: $color-secondary;
+}
+
+.text-white {
+    color: $text-white;
+}
+
+.text-light {
+    color: $text-light;
+}
+
+// === GRADIENTE DE TEXTO ===
+.text-gradient {
+    @include gradient-text;
+}
+
+// === EFECTOS DE TEXTO ===
+.text-shadow {
+    text-shadow: 0 2px 8px rgba($color-primary, 0.3);
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba($color-primary, 0.6);
+}
+
+// === RESPONSIVE TYPOGRAPHY ===
+@media (max-width: $breakpoint-md) {
+    h1 {
+        font-size: $font-size-3xl;
+    }
+
+    h2 {
+        font-size: $font-size-xl;
+    }
+
+    h3 {
+        font-size: $font-size-lg;
+    }
+
+    p {
+        font-size: $font-size-base;
+        text-align: left;
     }
 }
 
-.intro-imagen {
-    img {
-        max-width: 80%;
-        height: auto;
-        display: block;
-        margin: 0 auto spacing('12') auto;
-        border-radius: 20px;
-        box-shadow: 0 15px 35px rgba(color('primary'), 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: $transition-long;
-        animation: levitate 5s ease-in-out infinite;
+@media (max-width: $breakpoint-xs) {
+    h1 {
+        font-size: $font-size-2xl;
+        letter-spacing: -0.5px;
+    }
 
-        &:hover {
-            transform: translateY(-20px) scale(1.05) rotate(-1deg);
-        }
+    h2 {
+        font-size: $font-size-lg;
+    }
+
+    h3 {
+        font-size: $font-size-base;
+    }
+
+    p {
+        font-size: $font-size-sm;
+    }
+}
+
+// === HEADINGS ===
+h1 {
+    font-size: $font-size-5xl;
+    font-weight: $font-weight-extrabold;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    @include gradient-text($gradient-primary);
+    position: relative;
+    animation: titleGradient 4s ease infinite, titleFloat 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba($color-primary, 0.3);
+    letter-spacing: $letter-spacing-tight;
+}
+
+h2 {
+    font-size: $font-size-2xl;
+    color: $text-light;
+    margin: $spacing-xl 0 $spacing-lg 0;
+    font-weight: $font-weight-bold;
+    position: relative;
+    padding-left: 2.5rem;
+    letter-spacing: -0.5px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 85%;
+        background: linear-gradient(180deg, $color-primary, $color-primary-dark);
+        border-radius: 3px;
+        box-shadow: 0 0 15px rgba($color-primary, 0.5);
+        animation: h2Pulse 2s ease-in-out infinite;
+    }
+}
+
+h3 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-md;
+    color: $text-secondary;
+}
+
+h4 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-sm;
+    color: $text-secondary;
+}
+
+h5 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+    color: $text-secondary;
+}
+
+h6 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-xs;
+    color: $text-secondary;
+}
+
+// === PÁRRAFOS ===
+p {
+    font-size: $font-size-md;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-lg;
+    color: $text-secondary;
+    text-align: justify;
+    position: relative;
+    @include transition-all;
+
+    &:hover {
+        color: $text-tertiary;
+        transform: translateX(8px);
+        text-shadow: 0 2px 8px rgba($color-primary, 0.1);
+    }
+}
+
+// === CLASES UTILITARIAS DE TEXTO ===
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+// === TAMAÑOS DE TEXTO ===
+.text-xs {
+    font-size: $font-size-xs;
+}
+
+.text-sm {
+    font-size: $font-size-sm;
+}
+
+.text-base {
+    font-size: $font-size-base;
+}
+
+.text-lg {
+    font-size: $font-size-lg;
+}
+
+.text-xl {
+    font-size: $font-size-xl;
+}
+
+.text-2xl {
+    font-size: $font-size-2xl;
+}
+
+.text-3xl {
+    font-size: $font-size-3xl;
+}
+
+// === PESOS DE FUENTE ===
+.font-light {
+    font-weight: $font-weight-light;
+}
+
+.font-regular {
+    font-weight: $font-weight-regular;
+}
+
+.font-medium {
+    font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+    font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+    font-weight: $font-weight-bold;
+}
+
+.font-extrabold {
+    font-weight: $font-weight-extrabold;
+}
+
+// === COLORES DE TEXTO ===
+.text-primary {
+    color: $color-primary;
+}
+
+.text-secondary {
+    color: $color-secondary;
+}
+
+.text-white {
+    color: $text-white;
+}
+
+.text-light {
+    color: $text-light;
+}
+
+// === GRADIENTE DE TEXTO ===
+.text-gradient {
+    @include gradient-text;
+}
+
+// === EFECTOS DE TEXTO ===
+.text-shadow {
+    text-shadow: 0 2px 8px rgba($color-primary, 0.3);
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba($color-primary, 0.6);
+}
+
+// === RESPONSIVE TYPOGRAPHY ===
+@media (max-width: $breakpoint-md) {
+    h1 {
+        font-size: $font-size-3xl;
+    }
+
+    h2 {
+        font-size: $font-size-xl;
+    }
+
+    h3 {
+        font-size: $font-size-lg;
+    }
+
+    p {
+        font-size: $font-size-base;
+        text-align: left;
+    }
+}
+
+@media (max-width: $breakpoint-xs) {
+    h1 {
+        font-size: $font-size-2xl;
+        letter-spacing: -0.5px;
+    }
+
+    h2 {
+        font-size: $font-size-lg;
+    }
+
+    h3 {
+        font-size: $font-size-base;
+    }
+
+    p {
+        font-size: $font-size-sm;
     }
 }

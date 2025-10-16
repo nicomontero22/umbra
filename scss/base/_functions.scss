@@ -1,47 +1,107 @@
-// ===== base/_functions.scss =====
+@use 'sass:map';
+@use 'variables' as *;
 
-// ===== FUNCIONES PARA USAR MAPS =====
+// ========================================
+// FUNCIONES DE UTILIDAD
+// ========================================
+
+// --- MAPAS DE VALORES ---
+// Centralizamos los valores para que las funciones los puedan buscar.
+$colors: (
+    'primary': $color-primary,
+    'secondary': $color-secondary,
+    'accent': $color-accent,
+    'highlight': $color-highlight,
+    'white': $color-white,
+    'black': $color-black
+);
+
+$gradients: (
+    'header': $gradient-header,
+    'primary': $gradient-primary
+);
+
+$shadows: (
+    'soft': $shadow-sm,
+    'medium': $shadow-md,
+    'strong': $shadow-lg,
+    'hover': $shadow-hover
+);
+
+$spacing-values: (
+    '3': $spacing-xs,
+    '6': $spacing-md,
+    '12': $spacing-xl
+);
+
+$transitions: (
+    'ease': $transition-ease,
+    'bounce': $transition-bounce
+);
+
+$z-indexes: (
+    'base': 1,
+    'dropdown': 100,
+    'sticky': 200,
+    'fixed': 300,
+    'modal-backdrop': 900,
+    'modal': 1000,
+    'popover': 1100,
+    'tooltip': 1200
+);
+
+$breakpoints: (
+    'mobile': $breakpoint-xs,
+    'tablet': $breakpoint-md,
+    'desktop': $breakpoint-lg,
+    'large-desktop': $breakpoint-xl
+);
+
+$font-sizes-map: (
+    'h1': $font-size-h1,
+    'base': $font-size-base
+);
+
+
+// --- FUNCIONES ---
+
 @function color($key) {
-    @return map-get($colors, $key);
-}
-
-@function font-size($key) {
-    @return map-get($font-sizes, $key);
-}
-
-@function spacing($key) {
-    @return map-get($spacing, $key);
-}
-
-@function shadow($key) {
-    @return map-get($shadows, $key);
+    @return map.get($colors, $key);
 }
 
 @function gradient($key) {
-    @return map-get($gradients, $key);
+    @return map.get($gradients, $key);
+}
+
+@function shadow($key) {
+    @return map.get($shadows, $key);
+}
+
+@function spacing($key) {
+    @return map.get($spacing-values, $key);
+}
+
+@function transition($key) {
+    @return map.get($transitions, $key);
+}
+
+@function z-index($layer) {
+    @return map.get($z-indexes, $layer);
 }
 
 @function breakpoint($key) {
-    @return map-get($breakpoints, $key);
+    @return map.get($breakpoints, $key);
 }
 
-// ===== FUNCIONES UTILITARIAS =====
-@function rem($pixels) {
-    @return #{$pixels / 16}rem;
+@function font-size($key) {
+    @return map.get($font-sizes-map, $key);
 }
 
-@function em($pixels, $context: 16) {
-    @return #{$pixels / $context}em;
+@function rem($pixels, $context: 16) {
+    @return #{$pixels / $context}rem;
 }
 
-@function strip-units($number) {
-  @return $number / ($number * 0 + 1);
+@function percentage-calc($target, $context) {
+    @return percentage($target / $context);
 }
 
-@function pow($base, $exponent) {
-    $result: 1;
-    @for $_ from 1 through $exponent {
-    $result: $result * $base;
-    }
-    @return $result;
-}

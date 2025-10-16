@@ -1,8 +1,7 @@
 // ===== utilities/_spacing.scss =====
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
 
-// ===== GENERACIÓN AUTOMÁTICA DE CLASES DE ESPACIADO =====
-@include generate-spacing('margin', ('t', 'b', 'l', 'r'));
-@include generate-spacing('padding', ('t', 'b', 'l', 'r'));
 
 // ===== CLASES UTILITARIAS DE ESPACIADO =====
 .m-auto {

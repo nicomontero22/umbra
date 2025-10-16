@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acerca de Umbra - Nuestra Historia</title>
     <meta name="description" content="Conoce la historia, misión y valores de Umbra. Descubre por qué somos la mejor opción para tu proyecto digital.">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- HEADER CON NAVEGACIÓN -->
     <header>
+        <!-- Checkbox oculto para controlar el menú -->
+        <input type="checkbox" class="menu-toggle-checkbox" id="menu-toggle">
+
         <!-- Logo -->
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../assets/img/Gemini_Generated_Image_9hucd99hucd99huc.png" alt="Logo de Umbra">
-            </a>
-        </div>
+        <a href="../index.html" class="logo">
+            <img src="../assets/img/LOGO.PNG" alt="Logo Portfolio">
+        </a>
 
-        <!-- Checkbox oculto para controlar el menú (SIN JavaScript) -->
-        <input type="checkbox" id="menuToggle" class="menu-toggle-checkbox">
-
-        <!-- Botón hamburguesa (label conectado al checkbox) -->
-        <label for="menuToggle" class="menu-toggle" aria-label="Menú de navegación">
+        <!-- Botón Hamburguesa -->
+        <label for="menu-toggle" class="menu-toggle">
             <span></span>
             <span></span>
             <span></span>
@@ -29,67 +29,73 @@
         <!-- Navegación -->
         <nav>
             <ul class="nav-list">
-                <li><a href="../index.html">INICIO</a></li>
-                <li><a href="sobremi.html">SOBRE MÍ</a></li>
-                <li><a href="portfolio.html">PORTFOLIO</a></li>
-                <li><a href="trabajemosjuntos.html">TRABAJEMOS JUNTXS</a></li>
-                <li><a href="acercade.html">ACERCA DE</a></li>
-                <li><a href="contacto.html">CONTACTO</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="sobremi.html">Sobre Mí</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="trabajemosjuntos.html">Servicios</a></li>
+                <li><a href="acercade.html" class="active">Acerca de</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- MAIN -->
     <main class="acerca-de">
-        <section class="hero-interno">
-            <h1>Conoce Umbra</h1>
-            <p class="subtitulo">Creamos experiencias digitales que conectan marcas con personas</p>
-        </section>
 
-        <section class="intro-empresa">
+        <!-- NUEVA SECCIÓN DE INTRODUCCIÓN EN 2 COLUMNAS -->
+        <section class="intro-grid">
+            <div class="intro-texto">
+                <h1>Conoce Umbra</h1>
+                <p class="subtitulo">
+                    Creamos experiencias digitales que conectan marcas con personas. 
+                    Brindamos soluciones creativas, minimalistas y funcionales para potenciar 
+                    la presencia de marcas en el entorno digital.
+                </p>
+            </div>
             <div class="intro-imagen">
                 <img src="../assets/img/Imagenpresentacion.jpeg" alt="Equipo de Umbra trabajando en proyectos creativos">
             </div>
         </section>
 
-        <!-- CARDS INFORMATIVAS -->
+        <!-- CARDS INFORMATIVAS (Esta sección no cambia) -->
         <section class="empresa-info">
             <div class="cards-columnas">
                 <div class="card">
+                    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
                     <h2>Nuestra Misión</h2>
-                    <p>
-                        Brindar soluciones creativas, minimalistas y funcionales para potenciar la presencia de marcas en el entorno digital.
-                    </p>
+                    <p>Brindar soluciones creativas, minimalistas y funcionales para potenciar la presencia de marcas en el entorno digital.</p>
                 </div>
                 <div class="card">
+                    <div class="card-icon"><i class="fas fa-star"></i></div>
                     <h2>¿Por qué elegir Umbra?</h2>
-                    <p>
-                        Combinamos creatividad y funcionalidad para crear experiencias digitales únicas y memorables que generan resultados.
-                    </p>
+                    <p>Combinamos creatividad y funcionalidad para crear experiencias digitales únicas y memorables que generan resultados.</p>
                 </div>
                 <div class="card">
+                    <div class="card-icon"><i class="fas fa-heart"></i></div>
                     <h2>Nuestros Valores</h2>
-                    <p>
-                        Innovación, calidad, colaboración y resultados. Cada proyecto es una oportunidad para superar expectativas.
-                    </p>
+                    <p>Innovación, calidad, colaboración y resultados. Cada proyecto es una oportunidad para superar expectativas.</p>
                 </div>
                 <div class="card">
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
                     <h2>Nuestra Filosofía</h2>
-                    <p>
-                        Trabajamos de la mano con nuestros clientes para transformar sus ideas en soluciones visuales impactantes y efectivas.
-                    </p>
+                    <p>Trabajamos de la mano con nuestros clientes para transformar sus ideas en soluciones visuales impactantes y efectivas.</p>
                 </div>
             </div>
         </section>
 
-        <!-- LLAMADA A LA ACCIÓN -->
+        <!-- LLAMADA A LA ACCIÓN (Esta sección no cambia) -->
         <section class="cta-acerca">
             <h2>¿Quieres conocer más sobre nuestro trabajo?</h2>
             <div class="cta-buttons">
-                <a href="portfolio.html" class="btn btn-primary">Ver nuestros proyectos</a>
-                <a href="trabajemosjuntos.html" class="btn btn-secondary">Hablemos de tu idea</a>
+                <a href="../index.html#portfolio" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i> Ver nuestros proyectos
+                </a>
+                <a href="trabajemosjuntos.html" class="btn btn-secondary">
+                    <i class="fas fa-comments"></i> Hablemos de tu idea
+                </a>
             </div>
         </section>
+
     </main>
 
     <!-- FOOTER -->
@@ -98,3 +104,4 @@
     </footer>
 </body>
 </html>
+

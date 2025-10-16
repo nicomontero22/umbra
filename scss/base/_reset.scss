@@ -1,92 +1,193 @@
-// ===== base/_reset.scss =====
+@use 'variables' as *;
+@use 'mixins' as *;
 
-// ===== RESET Y BASE =====
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-    font-family: $font-family;
-    line-height: 1.6;
-    color: color('dark-brown');
-    background: #{gradient('background')};
+    font-family: $font-family-base;
+    line-height: $line-height-normal;
+    color: $text-primary;
+    background: $gradient-background;
     min-height: 100vh;
     overflow-x: hidden;
     animation: fadeIn 1s ease-out;
+    position: relative;
 }
 
-// ===== MAIN CONTENT =====
-main {
-    max-width: 1200px;
-    margin: spacing('16') auto;
-    padding: 0 spacing('8');
-    position: relative;
-
-    &::before {
+body::before,
+body::after {
     content: '';
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(45deg, color('primary'), color('secondary'));
+    position: fixed;
     border-radius: 50%;
-    opacity: 0.1;
-    z-index: -1;
-    animation: float 6s ease-in-out infinite;
-    }
-    
-    &::after {
-    content: '';
-    position: absolute;
-    bottom: -100px;
-    right: -100px;
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(45deg, color('tertiary'), color('quaternary'));
-    border-radius: 50%;
-    opacity: 0.1;
-    z-index: -1;
-    animation: float 8s ease-in-out infinite reverse;
-    }
+    pointer-events: none;
+    z-index: 0;
+    opacity: $opacity-15; // <-- PUNTO Y COMA AÑADIDO
+}
 
-    img:not(header .logo img) {
+body::before {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, $color-primary, transparent);
+    top: -200px;
+    left: -200px;
+    animation: float 20s ease-in-out infinite;
+}
+
+body::after {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, $color-primary-dark, transparent);
+    bottom: -300px;
+    right: -300px;
+    animation: float 25s ease-in-out infinite reverse;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+}
+
+p {
+    margin: 0 0 $spacing-lg 0;
+}
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color $duration-normal ease;
+}
+
+img {
     max-width: 100%;
     height: auto;
-    border-radius: 20px;
-    margin: spacing('12') auto;
     display: block;
-    box-shadow: 0 15px 35px rgba(color('primary'), 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: $transition-long;
-    position: relative;
+}
 
-    &:hover {
-        transform: translateY(-15px) scale(1.05) rotate(-1deg);
-    }
+button {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+::selection {
+    background: rgba($color-primary, 0.3);
+    color: $text-primary;
+}
+
+::-moz-selection {
+    background: rgba($color-primary, 0.3);
+    color: $text-primary;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba($color-primary-light, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: $gradient-primary;
+    border-radius: $radius-sm;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, $color-primary-dark, $color-primary);
+}
+
+* {
+    scroll-margin-top: 100px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    @include focus-visible;
+}
+
+@media screen and (max-width: $breakpoint-md) {
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"],
+    select,
+    textarea {
+        font-size: 16px;
     }
 }
 
-// ===== SECCIONES BASE =====
-section {
-    @include glassmorphism;
-    padding: spacing('16');
-    border-radius: $border-radius-large;
-    box-shadow: 0 20px 40px rgba(color('primary'), 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-    animation: slideUp 0.8s ease-out;
+* {
+    transition: background-color $duration-normal ease, color $duration-normal ease;
+}
 
-    &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, color('primary'), color('secondary'), color('tertiary'));
-    background-size: 200% 100%;
-    animation: gradientMove 3s linear infinite;
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

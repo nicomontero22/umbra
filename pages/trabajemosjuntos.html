@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabajemos Juntos - Umbra</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- HEADER -->
     <header>
@@ -44,48 +46,80 @@
     <main>
         <section id="trabajemos-juntos">
             <h1>Trabajemos Juntos</h1>
+
+            <h2>¿Qué puedo hacer por ti?</h2>
             
-            <h2>¿Tienes un proyecto en mente?</h2>
-            <p>
-                Me encantaría conocer más sobre tu idea y cómo podemos colaborar 
-                para crear algo increíble. Cada proyecto es único y merece un 
-                enfoque personalizado que refleje la esencia de tu marca.
+            <p class="section-intro">
+                Ofrezco un proceso de colaboración claro y transparente, diseñado para transformar
+                tus ideas en una solución digital de alto rendimiento.
             </p>
 
-            <h2>Servicios que ofrezco</h2>
-            <div class="servicios-grid">
-                <div class="servicio"><i class="fas fa-laptop-code"></i> Diseño Web Responsive</div>
-                <div class="servicio"><i class="fas fa-paint-brush"></i> Branding Digital</div>
-                <div class="servicio"><i class="fas fa-search"></i> Optimización UX/UI</div>
-                <div class="servicio"><i class="fas fa-shopping-cart"></i> E-commerce</div>
-                <div class="servicio"><i class="fas fa-cogs"></i> Mantenimiento Web</div>
-                <div class="servicio"><i class="fas fa-users"></i> Consultoría de Proyectos</div>
+            <!-- TIMELINE -->
+            <div class="timeline-process">
+                
+                <!-- PASO 1 -->
+                <div class="timeline-step">
+                    <div class="step-icon">1</div>
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>Descubrimiento & Estrategia</h3>
+                    <p>
+                        Análisis de necesidades, definición de objetivos y creación de wireframes.
+                        Sentamos las bases del proyecto.
+                    </p>
+                    <small>Fase 1: 1-2 semanas</small>
+                </div>
+
+                <!-- PASO 2 -->
+                <div class="timeline-step">
+                    <div class="step-icon">2</div>
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Diseño y Prototipado</h3>
+                    <p>
+                        Creación de mockups visuales y prototipos interactivos que definen la estética
+                        y la experiencia de usuario.
+                    </p>
+                    <small>Fase 2: 2-3 semanas</small>
+                </div>
+
+                <!-- PASO 3 -->
+                <div class="timeline-step">
+                    <div class="step-icon">3</div>
+                    <i class="fas fa-code"></i>
+                    <h3>Desarrollo Frontend</h3>
+                    <p>
+                        Codificación del proyecto con HTML, Sass, y JavaScript. Código limpio,
+                        optimizado y 100% responsive.
+                    </p>
+                    <small>Fase 3: 3-5 semanas</small>
+                </div>
+
+                <!-- PASO 4 -->
+                <div class="timeline-step">
+                    <div class="step-icon">4</div>
+                    <i class="fas fa-rocket"></i>
+                    <h3>Lanzamiento y Soporte</h3>
+                    <p>
+                        Pruebas finales (QA), despliegue en tu servidor y soporte técnico
+                        post-lanzamiento para garantizar el éxito.
+                    </p>
+                    <small>Fase 4: 1 semana</small>
+                </div>
+
+            </div>
+            
+            <!-- LLAMADA A LA ACCIÓN -->
+            <h2 style="margin-top: 4rem;">¿Listo para empezar?</h2>
+            
+            <p class="section-outro">
+                Cada proyecto es único. Agenda una consulta gratuita para recibir un plan y presupuesto detallado.
+            </p>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="contacto.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-comments"></i> AGENDAR CONSULTA
+                </a>
             </div>
 
-            <h2>Mi proceso de trabajo</h2>
-            <ol>
-                <li><strong>Consulta inicial gratuita:</strong> Conversamos sobre tu proyecto y objetivos</li>
-                <li><strong>Propuesta personalizada:</strong> Te envío un plan detallado con tiempos y costos</li>
-                <li><strong>Desarrollo del proyecto:</strong> Trabajo en tu proyecto manteniendo comunicación constante</li>
-                <li><strong>Revisiones y ajustes:</strong> Refinamos juntos cada detalle</li>
-                <li><strong>Entrega final:</strong> Recibes tu proyecto completo y funcional</li>
-                <li><strong>Soporte post-entrega:</strong> Te acompaño en el lanzamiento y primeros pasos</li>
-            </ol>
-
-            <h2>¿Por qué elegir trabajar conmigo?</h2>
-            <ul>
-                <li>Comunicación clara y constante durante todo el proceso</li>
-                <li>Entrega en los tiempos acordados</li>
-                <li>Código limpio y bien documentado</li>
-                <li>Diseños únicos y personalizados</li>
-                <li>Soporte técnico incluido</li>
-                <li>Precios competitivos y transparentes</li>
-            </ul>
-
-            <h2>¿Listo para empezar?</h2>
-            <p style="text-align: center; margin-top: 2rem;">
-                <a href="contacto.html">¡Hablemos de tu proyecto!</a>
-            </p>
         </section>
     </main>
 
@@ -94,4 +128,5 @@
         <p>&copy; 2025 Umbra. Todos los derechos reservados.</p>
     </footer>
 </body>
+
 </html>

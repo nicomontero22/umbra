@@ -1,69 +1,446 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Umbra - Soluciones Digitales Creativas</title>
-    <meta name="description"
-        content="Umbra - Transformamos ideas en experiencias digitales únicas. Diseño, estrategia y tecnología para potenciar tu marca.">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio profesional - Diseñador y Desarrollador Web">
+    <meta name="keywords" content="portfolio, diseño web, desarrollo, diseñador">
+    <meta name="author" content="Tu Nombre">
+    <title>Mi Portfolio | Diseño & Desarrollo Web</title>
+
+    <!-- CSS Compilado -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
+
+    <!-- HEADER CON NAVEGACIÓN -->
     <header>
+        <!-- Checkbox oculto para controlar el menú -->
+        <input type="checkbox" class="menu-toggle-checkbox" id="menu-toggle">
+
         <!-- Logo -->
-        <div class="logo">
-            <img src="assets/img/LOGO.PNG" alt="Logo Umbra">
-        </div>
+        <a href="#inicio" class="logo">
+            <img src="assets/img/LOGO.PNG" alt="Logo Portfolio">
+        </a>
 
-        <!-- Checkbox oculto para controlar el menú  -->
-        <input type="checkbox" id="menuToggle" class="menu-toggle-checkbox">
-
-        <!-- Botón hamburguesa  -->
-        <label for="menuToggle" class="menu-toggle" aria-label="Menú de navegación">
+        <!-- Botón Hamburguesa -->
+        <label for="menu-toggle" class="menu-toggle">
             <span></span>
             <span></span>
             <span></span>
         </label>
 
-        <!-- Navegación -->
-        <nav>
-            <ul class="nav-list">
-                <li><a href="pages/sobremi.html">SOBRE MÍ</a></li>
-                <li><a href="pages/portfolio.html">PORTFOLIO</a></li>
-                <li><a href="pages/trabajemosjuntos.html">TRABAJEMOS JUNTXS</a></li>
-                <li><a href="pages/acercade.html">ACERCA DE</a></li>
-                <li><a href="pages/contacto.html">CONTACTO</a></li>
-            </ul>
-        </nav>
+
+<!-- Navegación -->
+<nav>
+    <ul class="nav-list">
+        <li><a href="#inicio" class="active">Inicio</a></li>
+        <li><a href="pages/sobremi.html">Sobre Mí</a></li>
+        <li><a href="pages/portfolio.html">Portfolio</a></li>
+        <li><a href="pages/trabajemosjuntos.html">Servicios</a></li>
+        <li><a href="pages/acercade.html">Acerca de</a></li>
+        <li><a href="pages/contacto.html">Contacto</a></li>
+    </ul>
+</nav>
+</nav>
     </header>
 
-    <!-- HERO -->
-    <main class="hero-landing">
-        <section class="hero-content">
-            <h1 class="hero-title">
-                Transformamos ideas en<br>
-                <span class="highlight">experiencias digitales</span>
-            </h1>
-            <p class="hero-subtitle">
-                Diseño, estrategia y tecnología para potenciar la presencia de tu marca en el entorno digital.
-            </p>
-            <div class="hero-cta">
-                <a href="pages/acercade.html" class="btn btn-primary">Descubre Umbra</a>
-                <a href="pages/portfolio.html" class="btn btn-secondary">Ver trabajos</a>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- SECCIÓN INICIO -->
+        <section id="inicio">
+            <div class="inicio-columnas">
+                <h1 class="bienvenido">¡Bienvenido a mi Portfolio!</h1>
+
+                <div class="intro-imagen">
+                    <img src="assets/img/Imagenpresentacion.jpeg" alt="Imagen de presentación">
+                </div>
+
+                <p>
+                    Soy un diseñador y desarrollador web apasionado por crear experiencias digitales
+                    únicas y memorables. Con más de 5 años de experiencia, transformo ideas en
+                    realidades visuales impactantes.
+                </p>
+
+                <p>
+                    Mi enfoque combina creatividad, funcionalidad y las últimas tendencias en diseño
+                    para entregar proyectos que no solo se ven bien, sino que también funcionan
+                    perfectamente y generan resultados.
+                </p>
+
+                <div class="cards-columnas">
+                    <div class="card">
+                        <h2><i class="fas fa-palette"></i> Diseño Creativo</h2>
+                        <p>
+                            Diseños modernos y atractivos que capturan la esencia de tu marca
+                            y conectan con tu audiencia.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h2><i class="fas fa-code"></i> Desarrollo Web</h2>
+                        <p>
+                            Código limpio, optimizado y responsive que garantiza la mejor
+                            experiencia en todos los dispositivos.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h2><i class="fas fa-rocket"></i> Resultados</h2>
+                        <p>
+                            Proyectos que no solo impresionan visualmente, sino que también
+                            cumplen tus objetivos de negocio.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="hero-visual">
-            <div class="hero-image">
-                <img src="assets/img/Imagenpresentacion.jpeg" alt="Umbra - Diseño digital creativo">
+        <!-- SECCIÓN SOBRE MÍ -->
+        <section id="sobre-mi">
+            <h1>Sobre Mí</h1>
+
+            <p>
+                Soy un profesional multidisciplinario especializado en diseño y desarrollo web.
+                Mi pasión es crear experiencias digitales que combinan estética visual con
+                funcionalidad impecable.
+            </p>
+
+            <p>
+                Con formación en diseño gráfico y desarrollo frontend, aporto una perspectiva
+                única a cada proyecto. Me mantengo constantemente actualizado con las últimas
+                tecnologías y tendencias del sector.
+            </p>
+
+            <h2>Mis Habilidades</h2>
+
+            <div class="sobre-mi-habilidades">
+                <div class="habilidad">
+                    <i class="fab fa-html5"></i>
+                    <p>HTML5</p>
+                </div>
+
+                <div class="habilidad">
+                    <i class="fab fa-css3-alt"></i>
+                    <p>CSS3 / SASS</p>
+                </div>
+
+                <div class="habilidad">
+                    <i class="fab fa-js"></i>
+                    <p>JavaScript</p>
+                </div>
+
+                <div class="habilidad">
+                    <i class="fab fa-react"></i>
+                    <p>React</p>
+                </div>
+
+                <div class="habilidad">
+                    <i class="fab fa-figma"></i>
+                    <p>Figma</p>
+                </div>
+
+                <div class="habilidad">
+                    <i class="fab fa-adobe"></i>
+                    <p>Adobe Suite</p>
+                </div>
+
+                <div class="habilidad">
+                    <i class="fas fa-mobile-alt"></i>
+                    <p>Responsive Design</p>
+                </div>
+
+                <div class="habilidad">
+                    <i class="fas fa-search"></i>
+                    <p>SEO</p>
+                </div>
             </div>
         </section>
+
+        <!-- SECCIÓN PORTFOLIO -->
+        <section id="portfolio">
+            <h1>Mi Portfolio</h1>
+
+            <p class="portfolio-intro">
+                Explora una selección de mis proyectos más recientes. Cada uno representa
+                un desafío único y una solución creativa personalizada.
+            </p>
+
+            <div class="grid-portfolio">
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="assets/img/Gemini_Generated_Image_rzfxsxrzfxsxrzfx.png" alt="Proyecto 1 - E-commerce">
+                    </div>
+                    <div class="card-content">
+                        <h3>E-commerce Moderno</h3>
+                        <p>
+                            Tienda online completa con sistema de pagos integrado,
+                            panel de administración y diseño responsive.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="assets/img/Gemini_Generated_Image_na8f4xna8f4xna8f.png" alt="Proyecto 2 - Landing Page">
+                    </div>
+                    <div class="card-content">
+                        <h3>Landing Page Corporativa</h3>
+                        <p>
+                            Página de aterrizaje optimizada para conversión con
+                            animaciones interactivas y diseño minimalista.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="assets/img/Gemini_Generated_Image_9hucd99hucd99huc.png" alt="Proyecto 3 - App Web">
+                    </div>
+                    <div class="card-content">
+                        <h3>Aplicación Web</h3>
+                        <p>
+                            Dashboard interactivo con visualización de datos en
+                            tiempo real y experiencia de usuario intuitiva.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="assets/img/Gemini_Generated_Image_43qkf443qkf443qk.png" alt="Proyecto 4 - Blog">
+                    </div>
+                    <div class="card-content">
+                        <h3>Blog Personal</h3>
+                        <p>
+                            Sitio web de contenido con sistema de gestión,
+                            comentarios y optimización SEO completa.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="assets/img/Gemini_Generated_Image_3jzy523jzy523jzy.png" alt="Proyecto 5 - Restaurante">
+                    </div>
+                    <div class="card-content">
+                        <h3>Web para Restaurante</h3>
+                        <p>
+                            Sitio elegante con menú digital interactivo,
+                            sistema de reservas y galería fotográfica.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="assets/img/Gemini_Generated_Image_2ymxax2ymxax2ymx.png" alt="Proyecto 6 - Portfolio">
+                    </div>
+                    <div class="card-content">
+                        <h3>Portfolio Creativo</h3>
+                        <p>
+                            Showcase de trabajos con diseño inmersivo,
+                            transiciones suaves y efectos parallax.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN TRABAJEMOS JUNTOS -->
+        <!-- Sección Trabajemos Juntos - VERSIÓN INDEX -->
+<section id="trabajemos-juntos-preview" class="section-preview">
+    <div class="container">
+        <h2>¿Cómo trabajamos juntos?</h2>
+        <p class="section-intro">
+            Un proceso claro en 4 fases para transformar tus ideas en realidad digital.
+        </p>
+
+        <!-- Mini timeline (solo íconos) -->
+        <div class="process-mini">
+            <div class="process-item">
+                <div class="process-icon">
+                    <i class="fas fa-search-dollar"></i>
+                </div>
+                <h4>Descubrimiento</h4>
+            </div>
+
+            <div class="process-item">
+                <div class="process-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h4>Diseño</h4>
+            </div>
+
+            <div class="process-item">
+                <div class="process-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h4>Desarrollo</h4>
+            </div>
+
+            <div class="process-item">
+                <div class="process-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h4>Lanzamiento</h4>
+            </div>
+        </div>
+
+        <!-- CTA al detalle -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="pages/trabajemosjuntos.html" class="btn btn-primary">
+                Ver proceso completo <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+        <!-- SECCIÓN CONTACTO -->
+        <section id="contacto">
+            <h1>Contacto</h1>
+
+            <p class="subtitulo-contacto">
+                ¿Tienes alguna pregunta o proyecto en mente? No dudes en contactarme.
+                Estoy siempre disponible para nuevas oportunidades.
+            </p>
+
+            <div class="contacto-container">
+
+                <!-- Información de Contacto -->
+                <div class="info-contacto">
+                    <h2><i class="fas fa-info-circle"></i> Información</h2>
+
+                    <div class="contacto-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contacto-detalle">
+                            <strong>Email</strong>
+                            <a href="mailto:contacto@miportfolio.com">contacto@miportfolio.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contacto-detalle">
+                            <strong>Teléfono</strong>
+                            <a href="tel:+1234567890">+123 456 7890</a>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contacto-detalle">
+                            <strong>Ubicación</strong>
+                            <p>Ciudad, País</p>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="contacto-detalle">
+                            <strong>LinkedIn</strong>
+                            <a href="https://linkedin.com/in/tuusuario" target="_blank">linkedin.com/in/tuusuario</a>
+                        </div>
+                    </div>
+
+                    <div class="contacto-item">
+                        <i class="fab fa-github"></i>
+                        <div class="contacto-detalle">
+                            <strong>GitHub</strong>
+                            <a href="https://github.com/tuusuario" target="_blank">github.com/tuusuario</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <div class="formulario-contacto">
+                    <h2><i class="fas fa-paper-plane"></i> Envíame un Mensaje</h2>
+
+                    <form class="form-contacto" action="#" method="POST">
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <input type="text" id="asunto" name="asunto" placeholder="Asunto del mensaje" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <span>Enviar Mensaje</span>
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer-minimal">
-        <p>&copy; 2025 Umbra. Todos los derechos reservados.</p>
+    <footer>
+        <p>&copy; 2024 Mi Portfolio. Todos los derechos reservados. | Diseñado con <i class="fas fa-heart"
+                style="color: #ff6b35;"></i></p>
     </footer>
+
+    
+    <script>
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
+
+        // Marcar enlace activo según scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-list a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
 </body>
+
 </html>

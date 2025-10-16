@@ -1,17 +1,25 @@
-// ===== queries/_tablet.scss =====
+/*
+ queries/_tablet.scss
 
-// ===== TABLET (max-width: 768px) =====
-@include responsive('md') {
+ Estilos específicos para tablets.
+*/
+@use '../base/variables' as *;
+@use '../base/mixins' as mix;
+@use '../base/functions' as func;
+
+
+// ===== TABLET (min-width: 768px) =====
+@include mix.responsive('md') {
 
     // ===== HEADER TABLET =====
     header {
         flex-direction: column;
-        padding: spacing('8') spacing('4');
+        padding: func.spacing('8') func.spacing('4');
         min-height: auto;
 
         .logo {
-            margin: 0 0 spacing('4') 0;
-            padding: spacing('3') spacing('5');
+            margin: 0 0 func.spacing('4') 0;
+            padding: func.spacing('3') func.spacing('5');
             max-width: 100px;
             max-height: 50px;
 
@@ -30,54 +38,54 @@
         .nav-list {
             flex-wrap: wrap;
             justify-content: center;
-            gap: spacing('3');
+            gap: func.spacing('3');
 
             a {
-                padding: spacing('3') spacing('5');
-                font-size: font-size('xs');
+                padding: func.spacing('3') func.spacing('5');
+                font-size: func.font-size('xs');
             }
         }
     }
 
     // ===== CONTENIDO PRINCIPAL =====
     main {
-        margin: spacing('8') auto;
-        padding: 0 spacing('4');
+        margin: func.spacing('8') auto;
+        padding: 0 func.spacing('4');
     }
 
     section {
-        padding: spacing('10') spacing('8');
+        padding: func.spacing('10') func.spacing('8');
     }
 
     // ===== TIPOGRAFÍA TABLET =====
     h1 {
-        font-size: font-size('4xl');
+        font-size: func.font-size('4xl');
     }
 
     h2 {
-        font-size: font-size('2xl');
+        font-size: func.font-size('2xl');
     }
 
     p {
-        font-size: font-size('lg');
+        font-size: func.font-size('lg');
         text-align: left;
     }
 
     // ===== INICIO TABLET =====
     .inicio-columnas .bienvenido {
-        font-size: font-size('4xl');
+        font-size: func.font-size('4xl');
     }
 
     // ===== HABILIDADES TABLET =====
     .sobre-mi-habilidades {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: spacing('4');
+        gap: func.spacing('4');
 
         .habilidad {
-            padding: spacing('5') spacing('3');
+            padding: func.spacing('5') func.spacing('3');
 
             i {
-                font-size: font-size('2xl');
+                font-size: func.font-size('2xl');
             }
         }
     }
@@ -86,36 +94,36 @@
     #trabajemos-juntos {
         .servicios-grid {
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: spacing('4');
+            gap: func.spacing('4');
         }
 
         .servicio {
-            padding: spacing('5');
+            padding: func.spacing('5');
         }
     }
 
     // ===== PORTFOLIO TABLET =====
     .grid-portfolio {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        grid-gap: spacing('6');
-        margin-top: spacing('8');
+        grid-gap: func.spacing('6');
+        margin-top: func.spacing('8');
 
         .card {
             min-height: 340px;
-            padding: spacing('5');
+            padding: func.spacing('5');
 
             .image-container {
                 aspect-ratio: 16/9;
-                margin-bottom: spacing('4');
+                margin-bottom: func.spacing('4');
             }
 
             h3 {
-                font-size: font-size('xl');
-                margin-bottom: spacing('3');
+                font-size: func.font-size('xl');
+                margin-bottom: func.spacing('3');
             }
 
             p {
-                font-size: font-size('sm');
+                font-size: func.font-size('sm');
             }
         }
     }
@@ -123,7 +131,7 @@
     // ===== CARDS TABLET =====
     .cards-columnas {
         grid-template-columns: 1fr;
-        gap: spacing('6');
+        gap: func.spacing('6');
 
         .card {
             max-width: 600px;
@@ -134,7 +142,7 @@
     // ===== CONTACTO TABLET =====
     .contacto-container {
         grid-template-columns: 1fr;
-        gap: spacing('8');
+        gap: func.spacing('8');
     }
 
     .info-contacto,
@@ -147,25 +155,25 @@
     footer {
         .footer-main {
             grid-template-columns: repeat(2, 1fr);
-            gap: spacing('8');
+            gap: func.spacing('8');
             text-align: center;
         }
 
         .footer-links {
             flex-wrap: wrap;
-            gap: spacing('4');
+            gap: func.spacing('4');
         }
     }
 
     // ===== STATS TABLET =====
     .stats-section {
         grid-template-columns: repeat(2, 1fr);
-        gap: spacing('6');
+        gap: func.spacing('6');
     }
 }
 
-// ===== TABLET GRANDE (max-width: 1024px) =====
-@include responsive('lg') {
+// ===== TABLET GRANDE (min-width: 992px) =====
+@include mix.responsive('lg') {
 
     // ===== CONTENIDO GENERAL =====
     main {
@@ -174,24 +182,24 @@
 
     // ===== INICIO TABLET GRANDE =====
     .inicio-columnas .bienvenido {
-        font-size: font-size('5xl');
+        font-size: func.font-size('5xl');
     }
 
     // ===== PORTFOLIO TABLET GRANDE =====
     .grid-portfolio {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: spacing('8');
+        gap: func.spacing('8');
 
         .card {
             min-height: 380px;
-            padding: spacing('6');
+            padding: func.spacing('6');
         }
     }
 
     // ===== CARDS TABLET GRANDE =====
     .cards-columnas {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: spacing('6');
+        gap: func.spacing('6');
     }
 
     // ===== SERVICIOS TABLET GRANDE =====
@@ -209,22 +217,22 @@
 @media (max-width: 1024px) and (orientation: landscape) and (min-width: 769px) {
     header {
         flex-direction: row;
-        padding: spacing('4') spacing('6');
+        padding: func.spacing('4') func.spacing('6');
 
         .logo {
-            margin: 0 0 0 spacing('6');
+            margin: 0 0 0 func.spacing('6');
         }
 
         nav {
-            margin-right: spacing('6');
+            margin-right: func.spacing('6');
         }
     }
 
     .hero-section {
-        padding: spacing('16') 0;
+        padding: func.spacing('16') 0;
 
         .hero-title {
-            font-size: font-size('5xl');
+            font-size: func.font-size('5xl');
         }
     }
 

@@ -1,83 +1,94 @@
-// ===== sections/_inicio.scss =====
+/*
+  section/_inicio.scss
 
-// ===== SECCIÓN INICIO =====
-#inicio {
-    .hero-section {
-        text-align: center;
-        padding: spacing('20') 0;
-        position: relative;
+  Estilos para la sección principal o "hero" de la página.
+*/
+@use '../base/variables' as var;
+@use '../base/functions' as func;
+@use '../base/mixins' as mix;
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, color('primary'), transparent);
-            opacity: 0.3;
-            animation: float 8s ease-in-out infinite;
-        }
+main {
+    max-width: func.breakpoint('large-desktop');
+    margin: 4rem auto;
+    padding: 0 2rem;
+    position: relative;
 
-        .hero-title {
-            font-size: font-size('6xl');
-            font-weight: 700;
-            margin-bottom: spacing('6');
-            @include gradient-text;
-            animation: titleGlow 3s ease-in-out infinite alternate;
-        }
-
-        .hero-subtitle {
-            font-size: font-size('xl');
-            color: color('medium-brown');
-            margin-bottom: spacing('10');
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: spacing('4');
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(45deg, func.color('primary'), func.color('secondary'));
+        border-radius: 50%;
+        opacity: 0.1;
+        z-index: -1;
+        animation: float 6s ease-in-out infinite;
     }
 
-    .stats-section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: spacing('6');
-        margin-top: spacing('16');
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(45deg, func.color('accent'), func.color('highlight'));
+        border-radius: 50%;
+        opacity: 0.1;
+        z-index: -1;
+        animation: float 8s ease-in-out infinite reverse;
+    }
+}
 
-        .stat-item {
-            text-align: center;
-            padding: spacing('6');
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: $border-radius;
-            transition: $transition-smooth;
+section {
+    background: rgba(func.color('white'), 0.9);
+    backdrop-filter: blur(20px);
+    padding: 4rem;
+    border-radius: 30px;
+    box-shadow: func.shadow('soft');
+    border: 1px solid rgba(func.color('white'), 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.8s ease-out;
 
-            &:hover {
-                background: rgba(color('primary'), 0.1);
-                transform: translateY(-5px);
-            }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, func.color('primary'), func.color('secondary'), func.color('accent'));
+        background-size: 200% 100%;
+        animation: gradientMove 3s linear infinite;
+    }
+}
 
-            .stat-number {
-                font-size: font-size('4xl');
-                font-weight: 700;
-                color: color('primary');
-                display: block;
-                margin-bottom: spacing('2');
-            }
+// Estilos específicos para la sección de inicio
+.inicio-columnas .bienvenido {
+    font-size: func.font-size('h1');
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: func.gradient('primary');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-            .stat-label {
-                font-size: font-size('base');
-                color: color('medium-brown');
-                text-transform: uppercase;
-                letter-spacing: 1px;
-            }
-        }
+.intro-imagen img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto 3rem auto;
+    border-radius: 20px;
+    box-shadow: func.shadow('strong');
+    transition: func.transition('ease'); // Corregido: La sintaxis anterior era incorrecta
+    animation: levitate 5s ease-in-out infinite;
+
+    &:hover {
+        transform: translateY(-20px) scale(1.05) rotate(-1deg);
     }
 }

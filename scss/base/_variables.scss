@@ -1,91 +1,175 @@
-// ===== base/_variables.scss =====
+// ========================================
+// VARIABLES GLOBALES DEL PROYECTO
+// ========================================
 
-// ===== IMPORTAR FUENTES Y LIBRERÍAS =====
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+// === COLORES ===
+$color-primary: #ff6b35;
+$color-primary-light: #ff9a8b;
+$color-primary-dark: #f7931e;
+$color-secondary: #667eea;
+$color-secondary-dark: #764ba2;
+$color-accent: #e94e77;
+$color-highlight: #f7b733;
+$color-white: #ffffff;
+$color-black: #000000;
 
-// ===== VARIABLES DE COLORES =====
-$primary-color: #ff6b35;
-$secondary-color: #f7931e;
-$tertiary-color: #ff9a8b;
-$quaternary-color: #fecfef;
-$dark-brown: #2d1810;
-$medium-brown: #5d4037;
-$light-brown: #3e2723;
-$accent-brown: #d35400;
+// === COLORES DE TEXTO ===
+$text-primary: #2d1810;
+$text-secondary: #5d4037;
+$text-tertiary: #3e2723;
+$text-light: #d35400;
+$text-white: #ffffff;
+$text-footer: #ff9a8b;
 
-// ===== VARIABLES DE TIPOGRAFÍA =====
-$font-family: 'Poppins', sans-serif;
+// === GRADIENTES ===
+$gradient-primary: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 50%, $color-primary-light 100%);
+$gradient-secondary: linear-gradient(135deg, $color-secondary 0%, $color-secondary-dark 100%);
+$gradient-header: linear-gradient(120deg, rgba(255, 107, 53, 0.95) 0%, rgba(247, 147, 30, 0.95) 50%, rgba(255, 154, 139, 0.95) 100%);
+$gradient-background: linear-gradient(135deg, #ff9a8b 0%, #fecfef 50%, #ffecd2 100%);
+$gradient-card: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+$gradient-footer: linear-gradient(135deg, #2d1810 0%, #3e2723 100%);
 
-// ===== VARIABLES DE ESPACIADO =====
-$border-radius: 25px;
-$border-radius-small: 10px;
-$border-radius-large: 30px;
+// === EFECTOS DE CRISTAL (GLASSMORPHISM) ===
+$glass-bg: rgba(255, 255, 255, 0.1);
+$glass-bg-light: rgba(255, 255, 255, 0.12);
+$glass-bg-medium: rgba(255, 255, 255, 0.18);
+$glass-bg-strong: rgba(255, 255, 255, 0.95);
+$glass-border: rgba(255, 255, 255, 0.2);
+$glass-border-strong: rgba(255, 255, 255, 0.5);
 
-// ===== VARIABLES DE TRANSICIONES =====
-$transition-smooth: all 0.3s ease;
-$transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-$transition-long: all 0.5s ease;
+// === SOMBRAS ===
+$shadow-xs: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-sm: 0 4px 15px rgba(255, 107, 53, 0.15);
+$shadow-md: 0 10px 30px rgba(255, 107, 53, 0.25);
+$shadow-lg: 0 20px 60px rgba(255, 107, 53, 0.35);
+$shadow-xl: 0 30px 80px rgba(255, 107, 53, 0.35);
+$shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+$shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+$shadow-card: 0 15px 40px rgba(255, 107, 53, 0.35), 0 5px 15px rgba(0, 0, 0, 0.1);
+$shadow-header: 0 8px 32px rgba(255, 107, 53, 0.35), 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+$shadow-button: 0 8px 25px rgba(255, 107, 53, 0.35), 0 3px 10px rgba(0, 0, 0, 0.1);
+$shadow-section: 0 25px 50px rgba(255, 107, 53, 0.12), 0 8px 20px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 
-// ===== MAPS =====
-$colors: (
-    'primary': $primary-color,
-    'secondary': $secondary-color,
-    'tertiary': $tertiary-color,
-    'quaternary': $quaternary-color,
-    'dark-brown': $dark-brown,
-    'medium-brown': $medium-brown,
-    'light-brown': $light-brown,
-    'accent-brown': $accent-brown
-);
+// === TRANSICIONES ===
+$transition-base: 0.3s ease;
+$transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+$transition-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$transition-ease: all 0.3s ease;
+$duration-fast: 0.2s;
+$duration-normal: 0.3s;
+$duration-slow: 0.5s;
+$duration-slower: 0.8s;
 
-$font-sizes: (
-    'xs': 0.75rem,
-    'sm': 0.875rem,
-    'base': 1rem,
-    'lg': 1.125rem,
-    'xl': 1.25rem,
-    '2xl': 1.5rem,
-    '3xl': 1.875rem,
-    '4xl': 2.25rem,
-    '5xl': 3rem,
-    '6xl': 3.75rem
-);
+// === ESPACIADO ===
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-2xl: 4rem;
+$spacing-3xl: 5rem;
 
 $spacing: (
-    '1': 0.25rem,
-    '2': 0.5rem,
-    '3': 0.75rem,
-    '4': 1rem,
-    '5': 1.25rem,
-    '6': 1.5rem,
-    '8': 2rem,
-    '10': 2.5rem,
-    '12': 3rem,
-    '16': 4rem,
-    '20': 5rem
+  '0': 0, '1': 0.25rem, '2': 0.5rem, '3': 0.75rem, '4': 1rem, '5': 1.25rem, '6': 1.5rem, '8': 2rem, '10': 2.5rem, '12': 3rem, '16': 4rem, '20': 5rem, 'auto': auto
 );
 
+// === BORDER RADIUS ===
+$radius-sm: 10px;
+$radius-md: 15px;
+$radius-lg: 20px;
+$radius-xl: 25px;
+$radius-2xl: 30px;
+$radius-3xl: 35px;
+$radius-full: 50px;
+$radius-circle: 50%;
+
+// === TIPOGRAFÍA ===
+$font-family-base: 'Poppins', sans-serif;
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.5rem;
+$font-size-4xl: 3rem;
+$font-size-5xl: 4rem;
+$font-size-h1: 3rem;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+$line-height-tight: 1.2;
+$line-height-normal: 1.6;
+$line-height-relaxed: 1.8;
+$line-height-loose: 2;
+$letter-spacing-tight: -1px;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 1px;
+$letter-spacing-wider: 1.2px;
+$letter-spacing-widest: 1.5px;
+
+// === BREAKPOINTS RESPONSIVE ===
+$breakpoint-xs: 480px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-2xl: 1400px;
+
+// Mapa de breakpoints para que el mixin 'responsive' funcione
 $breakpoints: (
-    'sm': 480px,
-    'md': 768px,
-    'lg': 1024px,
-    'xl': 1200px
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+  'xxl': $breakpoint-2xl
 );
 
-$shadows: (
-    'sm': '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)',
-    'md': '0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)',
-    'lg': '0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)',
-    'xl': '0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04)',
-    'primary': '0 10px 30px rgba(#{red($primary-color)}, #{green($primary-color)}, #{blue($primary-color)}, 0.4)',
-    'glow': '0 0 20px rgba(#{red($primary-color)}, #{green($primary-color)}, #{blue($primary-color)}, 0.6)'
-);
+// === Z-INDEX ===
+$z-index-base: 1;
+$z-index-dropdown: 100;
+$z-index-sticky: 200;
+$z-index-fixed: 300;
+$z-index-modal-backdrop: 900;
+$z-index-modal: 1000;
+$z-index-popover: 1100;
+$z-index-tooltip: 1200;
 
-$gradients: (
-    'primary': 'linear-gradient(45deg, #{$primary-color}, #{$secondary-color}, #{$primary-color})',
-    'card': 'linear-gradient(135deg, #{$primary-color}, #{$tertiary-color})',
-    'text': 'linear-gradient(45deg, #{$primary-color}, #{$secondary-color}, #{$tertiary-color})',
-    'background': 'linear-gradient(135deg, #{$tertiary-color} 0%, #{$quaternary-color} 50%, #{$quaternary-color} 100%)',
-    'footer': 'linear-gradient(45deg, #{$dark-brown}, #{$light-brown})'
-);
+// === OPACIDADES ===
+$opacity-0: 0;
+$opacity-5: 0.05;
+$opacity-10: 0.1;
+$opacity-15: 0.15;
+$opacity-20: 0.2;
+$opacity-30: 0.3;
+$opacity-40: 0.4;
+$opacity-50: 0.5;
+$opacity-60: 0.6;
+$opacity-70: 0.7;
+$opacity-80: 0.8;
+$opacity-90: 0.9;
+$opacity-100: 1;
+
+// === OTROS ===
+$header-height: 85px;
+$header-height-mobile: 75px;
+$blur-sm: 10px;
+$blur-md: 15px;
+$blur-lg: 20px;
+$blur-xl: 30px;
+$backdrop-filter-glass: blur(20px) saturate(180%);
+$backdrop-filter-header: blur(20px) saturate(180%);
+
+// === COLORES DE TEXTO ===
+$text-primary: #2d1810;        // Color de texto principal (casi negro, oscuro)
+$text-secondary: #5d4037;      // Color de texto secundario (marrón oscuro, ideal para descripciones)
+$text-tertiary: #3e2723;       // Color de texto terciario
+$text-light: #d35400;          // Color para textos que deben resaltar (ej: títulos)
+$text-white: #ffffff;          // Color blanco
+$text-footer: #ff9a8b;         // Color específico para el texto del footer (claro)
+$color-primary-light: #a78bfa;
